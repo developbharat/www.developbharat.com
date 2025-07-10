@@ -1,0 +1,27 @@
+---
+import BaseHead from "@components/BaseHead.astro";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import i18next from "i18next";
+import { HeadHrefLangs } from "astro-i18next/components";
+
+interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang={i18next.language}>
+    <head>
+        <BaseHead title={title} description={description} />
+        <HeadHrefLangs />
+    </head>
+
+    <body class="bg-neutral-0 dark:bg-neutral-dark-0">
+        <Header />
+        <slot />
+        <Footer />
+    </body>
+</html>

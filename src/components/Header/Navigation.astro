@@ -1,0 +1,43 @@
+---
+import { t, translatePath } from "@utils/i18n";
+---
+
+<ul class="xl:flex hidden">
+    <li class="relative">
+        <a class="menu-item" href={translatePath("/")}>Home</a>
+    </li>
+    <li class="relative">
+        <a class="menu-item" href={translatePath("/articles")}>Blog</a>
+    </li>
+    <li class="relative group">
+        <a class="menu-item" href="#">Products</a>
+        <ul
+            class="z-100 absolute px-6 py-4 rounded-md left-4 bg-neutral-0 dark:bg-neutral-dark-0 min-w-48 shadow-sm mt-8 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:mt-4 transition-all duration-500"
+        >
+            <li>
+                <a
+                    href={translatePath("/products/hindmail")}
+                    class="menu-sub-item">Hind Mail</a
+                >
+            </li>
+            <li>
+                <a
+                    href={translatePath("/products/uistudio")}
+                    class="menu-sub-item">UI Studio</a
+                >
+            </li>
+            <li>
+                <a
+                    href={translatePath("/products/torrenthub")}
+                    class="menu-sub-item">TorrentHub</a
+                >
+            </li>
+        </ul>
+    </li>
+    <li class="relative">
+        <a href={translatePath("/about")} class="menu-item">About Us</a>
+    </li>
+    <li class="relative">
+        <a href={translatePath("/contact")} class="menu-item">Contact</a>
+    </li>
+</ul>

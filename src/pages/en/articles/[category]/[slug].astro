@@ -1,0 +1,26 @@
+---
+import { changeLanguage } from "i18next";
+import BlogPost from "@layouts/BlogPost.astro";
+import { parseArticleId } from "@utils/articles";
+import { type CollectionEntry, getCollection, render } from "astro:content";
+
+changeLanguage("en");
+
+export async function getStaticPaths() {
+    const posts = await getCollection("articles");
+    return posts.map((post) => ({
+        params: {
+            slug: parseArticleId(post.id).slug,
+            category: parseArticleId(post.id).category,
+        },
+        props: post,
+    }));
+}
+type Props = CollectionEntry<"articles">;
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<BlogPost {...post.data}>
+    <Content />
+</BlogPost>
