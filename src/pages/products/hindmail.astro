@@ -1,0 +1,1093 @@
+---
+import { changeLanguage } from "i18next";
+import MainWebsite from "@layouts/MainWebsite.astro";
+import { t, translatePath } from "@utils/i18n";
+
+changeLanguage("hi");
+---
+
+<MainWebsite title={t.site.title} description={t.site.description}>
+    <!-- Section: Welcome Hero Section -->
+    <section class="py-16 lg:py-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row">
+                <!-- Left column (content) -->
+                <div class="md:w-3/4 lg:w-1/2">
+                    <h1
+                        class="heading-2 mb-12 text-neutral-950 dark:text-neutral-dark-950"
+                    >
+                        Building the Work Ecosystem
+                    </h1>
+                    <p
+                        class="mb-8 text-base font-md text-neutral-950 dark:text-neutral-dark-950 lg:w-1/2 md:w-full"
+                    >
+                        Connect your conversations with the tools and services
+                        that you use to get the job done. With over 1,500 apps
+                        and a robust API
+                    </p>
+
+                    <div class="flex items-center gap-8 mb-16">
+                        <a
+                            href="#"
+                            role="button"
+                            class="group btn bg-primary-light-950 dark:bg-primary-dark-950 rounded-full px-8 py-4 text-xl text-neutral-950 dark:text-neutral-dark-950 flex gap-2 items-center"
+                        >
+                            <span>Get Started</span>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                class="fill-neutral-950 dark:fill-neutral-dark-950 group-hover:translate-x-1 transition-all duration-300"
+                            >
+                                <g clip-path="url(#clip0_253_4238)">
+                                    <path
+                                        d="M23.6164 11.0663L14.9491 2.39884C14.7017 2.15143 14.372 2.01562 14.0204 2.01562C13.6684 2.01562 13.3388 2.15162 13.0914 2.39884L12.3045 3.18596C12.0573 3.43298 11.9211 3.76293 11.9211 4.11473C11.9211 4.46634 12.0573 4.80741 12.3045 5.05443L17.3608 10.1219H1.29657C0.572288 10.1219 0 10.6889 0 11.4134V12.5262C0 13.2507 0.572288 13.8748 1.29657 13.8748H17.4182L12.3047 18.9706C12.0575 19.218 11.9213 19.539 11.9213 19.8908C11.9213 20.2422 12.0575 20.5679 12.3047 20.8151L13.0916 21.5997C13.339 21.8471 13.6686 21.9819 14.0206 21.9819C14.3722 21.9819 14.7019 21.8453 14.9493 21.5979L23.6166 12.9307C23.8646 12.6825 24.001 12.3512 24 11.999C24.0008 11.6456 23.8646 11.3141 23.6164 11.0663Z"
+                                    ></path>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_253_4238">
+                                        <rect width="24" height="24"></rect>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+                        <a
+                            href="/"
+                            class="flex items-center gap-3 text-base font-md text-neutral-700 hover:text-neutral-950 dark:text-neutral-dark-700 dark:hover:text-neutral-dark-950"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polygon points="10 8 16 12 10 16 10 8"
+                                ></polygon>
+                            </svg>
+                            How it works
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right column (image) - hidden on mobile, visible on lg screens and up -->
+                <div
+                    class="flex lg:w-1/2 lg:pl-8 justify-center items-center relative"
+                >
+                    <div class="relative w-full h-full">
+                        <img
+                            src="/assets/images/hero-services-1.png"
+                            alt="Work Ecosystem"
+                            class="w-full h-auto object-cover"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section What we do? -->
+    <section class="py-16 lg:py-24">
+        <div class="container mx-auto px-4">
+            <!-- Badge -->
+            <span
+                class="inline-block bg-neutral-100 dark:bg-neutral-dark-100 text-primary-light-950 dark:text-primary-dark-950 py-3 px-6 rounded-full text-sm font-medium mb-6"
+            >
+                What We Do
+            </span>
+
+            <!-- Heading -->
+            <div class="mb-12 lg:mb-16 flex justify-between items-center">
+                <h2
+                    class="heading-2 mb-6 text-neutral-950 dark:text-neutral-dark-950 max-w-3xl"
+                >
+                    We're always looking for new faces and fresh ideas
+                </h2>
+                <img
+                    src="/assets/images/thumbnail-10.png"
+                    alt="Product showcase"
+                    class="object-cover rounded-xl h-52 hidden lg:block"
+                />
+            </div>
+
+            <!-- Grid items -->
+            <div
+                class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-16 lg:mb-24"
+            >
+                <!-- Item 1 -->
+                <div class="flex items-start gap-4 md:gap-6">
+                    <div
+                        class="bg-white dark:bg-neutral-dark-100 rounded-full w-12 h-12 p-3 flex items-center justify-center"
+                    >
+                        <img
+                            class="max-w-[40px] md:max-w-[52px]"
+                            src="/assets/images/icons/icon-job-1.svg"
+                            alt="icon"
+                        />
+                    </div>
+                    <div>
+                        <h3
+                            class="text-xl font-bold mb-3 text-neutral-900 dark:text-neutral-dark-900"
+                        >
+                            Support Engineer
+                        </h3>
+                        <p
+                            class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                        >
+                            We commit to original work of the highest standard
+                            and giving credit where it's due.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="flex items-start gap-4 md:gap-6">
+                    <div
+                        class="bg-white dark:bg-neutral-dark-100 rounded-full w-12 h-12 p-3 flex items-center justify-center"
+                    >
+                        <img
+                            class="max-w-[40px] md:max-w-[52px]"
+                            src="/assets/images/icons/icon-job-2.svg"
+                            alt="icon"
+                        />
+                    </div>
+                    <div>
+                        <h3
+                            class="text-xl font-bold mb-3 text-neutral-900 dark:text-neutral-dark-900"
+                        >
+                            Web Developer
+                        </h3>
+                        <p
+                            class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                        >
+                            We become a bonafide agency with a tiny team of 3
+                            and then hire our first developers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="flex items-start gap-4 md:gap-6">
+                    <div
+                        class="bg-white dark:bg-neutral-dark-100 rounded-full w-12 h-12 p-3 flex items-center justify-center"
+                    >
+                        <img
+                            class="max-w-[40px] md:max-w-[52px]"
+                            src="/assets/images/icons/icon-job-3.svg"
+                            alt="icon"
+                        />
+                    </div>
+                    <div>
+                        <h3
+                            class="text-xl font-bold mb-3 text-neutral-900 dark:text-neutral-dark-900"
+                        >
+                            Business Analyst
+                        </h3>
+                        <p
+                            class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                        >
+                            We create our first campaign for Kaleidoscope Tech
+                            and it goes viral.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="flex items-start gap-4 md:gap-6">
+                    <div
+                        class="bg-white dark:bg-neutral-dark-100 rounded-full w-12 h-12 p-3 flex items-center justify-center"
+                    >
+                        <img
+                            class="max-w-[40px] md:max-w-[52px]"
+                            src="/assets/images/icons/icon-job-4.svg"
+                            alt="icon"
+                        />
+                    </div>
+                    <div>
+                        <h3
+                            class="text-xl font-bold mb-3 text-neutral-900 dark:text-neutral-dark-900"
+                        >
+                            Product Designer
+                        </h3>
+                        <p
+                            class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                        >
+                            With a growing body of work, we bring more artists,
+                            designers on board.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="flex items-start gap-4 md:gap-6">
+                    <div
+                        class="bg-white dark:bg-neutral-dark-100 rounded-full w-12 h-12 p-3 flex items-center justify-center"
+                    >
+                        <img
+                            class="max-w-[40px] md:max-w-[52px]"
+                            src="/assets/images/icons/icon-job-5.svg"
+                            alt="icon"
+                        />
+                    </div>
+                    <div>
+                        <h3
+                            class="text-xl font-bold mb-3 text-neutral-900 dark:text-neutral-dark-900"
+                        >
+                            Share stories
+                        </h3>
+                        <p
+                            class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                        >
+                            We earn our first organic feature in Magazine as a
+                            creative agency.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="flex items-start gap-4 md:gap-6">
+                    <div
+                        class="bg-white dark:bg-neutral-dark-100 rounded-full w-12 h-12 p-3 flex items-center justify-center"
+                    >
+                        <img
+                            class="max-w-[40px] md:max-w-[52px]"
+                            src="/assets/images/icons/icon-job-6.svg"
+                            alt="icon"
+                        />
+                    </div>
+                    <div>
+                        <h3
+                            class="text-xl font-bold mb-3 text-neutral-900 dark:text-neutral-dark-900"
+                        >
+                            Build communities
+                        </h3>
+                        <p
+                            class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                        >
+                            We're not in the business of selling at any cost or
+                            running after unrealistic.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="flex items-start gap-4 md:gap-6">
+                    <div
+                        class="bg-white dark:bg-neutral-dark-100 rounded-full w-12 h-12 p-3 flex items-center justify-center"
+                    >
+                        <img
+                            class="max-w-[40px] md:max-w-[52px]"
+                            src="/assets/images/icons/icon-job-7.svg"
+                            alt="icon"
+                        />
+                    </div>
+                    <div>
+                        <h3
+                            class="text-xl font-bold mb-3 text-neutral-900 dark:text-neutral-dark-900"
+                        >
+                            A team with a mission
+                        </h3>
+                        <p
+                            class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                        >
+                            We tell powerful stories that matter to your
+                            customers (and us).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="w-full bg-neutral-200 dark:bg-neutral-dark-200 h-px">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Product Showcase Right Side -->
+    <section class="py-16 lg:py-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-24">
+                <!-- Image Column -->
+                <div class="lg:w-1/2 order-2 lg:order-1">
+                    <img
+                        src="/assets/images/thumbnail-10.png"
+                        alt="Product showcase"
+                        class="w-full h-auto object-cover rounded-xl"
+                    />
+                </div>
+
+                <!-- Content Column -->
+                <div class="lg:w-1/2 order-1 lg:order-2">
+                    <!-- Badge -->
+                    <span
+                        class="inline-block bg-primary-light-100 dark:bg-primary-dark-100 text-primary-light-950 dark:text-primary-dark-950 py-3 px-6 rounded-full text-sm font-medium mb-6"
+                    >
+                        Built Exclusively For You
+                    </span>
+
+                    <!-- Heading -->
+                    <h2
+                        class="heading-2 mb-6 text-neutral-950 dark:text-neutral-dark-950"
+                    >
+                        From the big picture to every tiny detail, we got you
+                        covered.
+                    </h2>
+
+                    <!-- Description -->
+                    <p
+                        class="text-lg text-neutral-700 dark:text-neutral-dark-700 mb-12"
+                    >
+                        Necessary to deliver white glove, fully managed
+                        campaigns that surpass industry benchmarks. Take your
+                        career to next level. Apply to our team and see what we
+                        can do together. You're good enough.
+                    </p>
+
+                    <!-- Divider -->
+                    <div
+                        class="w-full border-b border-dashed border-primary-light-950 dark:border-primary-dark-950 mb-12"
+                    >
+                    </div>
+
+                    <!-- Features Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Feature 1 -->
+                        <div class="flex flex-col">
+                            <div class="flex items-center mb-4">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    class="w-5 h-5 mr-2 text-primary-light-950 dark:text-primary-dark-950"
+                                >
+                                    <path
+                                        d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+                                    ></path>
+                                </svg>
+                                <h4
+                                    class="text-xl font-bold text-neutral-900 dark:text-neutral-dark-900"
+                                >
+                                    Boost your sale
+                                </h4>
+                            </div>
+                            <p
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                            >
+                                The latest design trends meet hand-crafted
+                                templates.
+                            </p>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="flex flex-col">
+                            <div class="flex items-center mb-4">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    class="w-5 h-5 mr-2 text-primary-light-950 dark:text-primary-dark-950"
+                                >
+                                    <path
+                                        d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+                                    ></path>
+                                </svg>
+                                <h4
+                                    class="text-xl font-bold text-neutral-900 dark:text-neutral-dark-900"
+                                >
+                                    Smart Installation Tools
+                                </h4>
+                            </div>
+                            <p
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                            >
+                                The latest design trends meet hand-crafted
+                                templates.
+                            </p>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="flex flex-col">
+                            <div class="flex items-center mb-4">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    class="w-5 h-5 mr-2 text-primary-light-950 dark:text-primary-dark-950"
+                                >
+                                    <path
+                                        d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+                                    ></path>
+                                </svg>
+                                <h4
+                                    class="text-xl font-bold text-neutral-900 dark:text-neutral-dark-900"
+                                >
+                                    Introducing New Features
+                                </h4>
+                            </div>
+                            <p
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                            >
+                                The latest design trends meet hand-crafted
+                                templates.
+                            </p>
+                        </div>
+
+                        <!-- Feature 4 -->
+                        <div class="flex flex-col">
+                            <div class="flex items-center mb-4">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    class="w-5 h-5 mr-2 text-primary-light-950 dark:text-primary-dark-950"
+                                >
+                                    <path
+                                        d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+                                    ></path>
+                                </svg>
+                                <h4
+                                    class="text-xl font-bold text-neutral-900 dark:text-neutral-dark-900"
+                                >
+                                    Dynamic Boosting
+                                </h4>
+                            </div>
+                            <p
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                            >
+                                The latest design trends meet hand-crafted
+                                templates.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Product Pricing -->
+    <section class="py-16 lg:py-24 bg-neutral-100 dark:bg-neutral-dark-100">
+        <div class="container mx-auto px-4">
+            <!-- Heading -->
+            <div class="text-center mb-12">
+                <h2
+                    class="heading-2 mb-6 text-neutral-950 dark:text-neutral-dark-950"
+                >
+                    Choose The Best Plan That's For You
+                </h2>
+            </div>
+
+            <!-- Toggle Switch -->
+            <div class="flex items-center justify-center gap-4 mb-12">
+                <span
+                    class="text-base font-medium text-neutral-700 dark:text-neutral-dark-700"
+                    >Bill Monthly</span
+                >
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input
+                        type="checkbox"
+                        class="sr-only peer"
+                        id="billSwitch"
+                    />
+                    <div
+                        class="w-16 h-8 bg-neutral-300 dark:bg-neutral-dark-300 rounded-full peer peer-checked:after:translate-x-8 peer-checked:bg-primary-light-950 dark:peer-checked:bg-primary-dark-950 peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:left-1 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all"
+                    >
+                    </div>
+                </label>
+                <span
+                    class="text-base font-medium text-neutral-700 dark:text-neutral-dark-700"
+                    >Bill Annually</span
+                >
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Pricing Card 1 -->
+                <div
+                    class="bg-white dark:bg-neutral-dark-0 rounded-xl p-8 border border-neutral-300 dark:border-neutral-dark-300 transition-all duration-300 hover:shadow-lg"
+                >
+                    <div class="mb-6">
+                        <span class="text-3xl font-bold">$35</span>
+                        <span
+                            class="text-sm font-medium text-neutral-500 dark:text-neutral-dark-500"
+                            >/month</span
+                        >
+                    </div>
+                    <h4
+                        class="text-xl font-bold mb-3 text-neutral-900 dark:text-neutral-dark-900"
+                    >
+                        Standard
+                    </h4>
+                    <p
+                        class="text-sm font-medium text-neutral-500 dark:text-neutral-dark-500 mb-8"
+                    >
+                        All the basics for businesses that are just getting
+                        started.
+                    </p>
+                    <div
+                        class="w-full border-b border-neutral-200 dark:border-neutral-dark-200 mb-6"
+                    >
+                    </div>
+                    <ul class="mb-8 space-y-4">
+                        <li class="flex items-center gap-3">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-5 h-5 text-green-500"
+                            >
+                                <path
+                                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                                ></path>
+                            </svg>
+                            <span
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                                >Unlimited updates</span
+                            >
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-5 h-5 text-green-500"
+                            >
+                                <path
+                                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                                ></path>
+                            </svg>
+                            <span
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                                >Custom permissions</span
+                            >
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-5 h-5 text-red-500"
+                            >
+                                <path
+                                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+                                ></path>
+                            </svg>
+                            <span
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                                >Custom designs & features</span
+                            >
+                        </li>
+                    </ul>
+                    <a
+                        href="#"
+                        class="w-full btn border border-neutral-950 dark:border-neutral-dark-300 dark:bg-neutral-dark-0 rounded-full px-6 py-3 text-lg text-neutral-950 dark:text-neutral-dark-950 flex items-center justify-center gap-2"
+                    >
+                        Get Started
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Pricing Card 2 (Active) -->
+                <div
+                    class="bg-white dark:bg-neutral-dark-0 rounded-xl p-8 border-2 border-primary-light-950 dark:border-primary-dark-950 transition-all duration-300 hover:shadow-lg"
+                >
+                    <div class="mb-6">
+                        <span class="text-3xl font-bold">$89</span>
+                        <span
+                            class="text-sm font-medium text-neutral-500 dark:text-neutral-dark-500"
+                            >/month</span
+                        >
+                    </div>
+                    <h4
+                        class="text-xl font-bold mb-3 text-neutral-900 dark:text-neutral-dark-900"
+                    >
+                        Standard
+                    </h4>
+                    <p
+                        class="text-sm font-medium text-neutral-500 dark:text-neutral-dark-500 mb-8"
+                    >
+                        All the basics for businesses that are just getting
+                        started.
+                    </p>
+                    <div
+                        class="w-full border-b border-neutral-200 dark:border-neutral-dark-200 mb-6"
+                    >
+                    </div>
+                    <ul class="mb-8 space-y-4">
+                        <li class="flex items-center gap-3">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-5 h-5 text-green-500"
+                            >
+                                <path
+                                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                                ></path>
+                            </svg>
+                            <span
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                                >Unlimited updates</span
+                            >
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-5 h-5 text-green-500"
+                            >
+                                <path
+                                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                                ></path>
+                            </svg>
+                            <span
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                                >Custom permissions</span
+                            >
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-5 h-5 text-red-500"
+                            >
+                                <path
+                                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+                                ></path>
+                            </svg>
+                            <span
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                                >Custom designs & features</span
+                            >
+                        </li>
+                    </ul>
+                    <a
+                        href="#"
+                        class="w-full btn bg-primary-light-950 dark:bg-primary-dark-950 rounded-full px-6 py-3 text-lg text-white flex items-center justify-center gap-2"
+                    >
+                        Get Started
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Pricing Card 3 -->
+                <div
+                    class="bg-white dark:bg-neutral-dark-0 rounded-xl p-8 border border-neutral-300 dark:border-neutral-dark-300 transition-all duration-300 hover:shadow-lg"
+                >
+                    <div class="mb-6">
+                        <span class="text-3xl font-bold">$125</span>
+                        <span
+                            class="text-sm font-medium text-neutral-500 dark:text-neutral-dark-500"
+                            >/month</span
+                        >
+                    </div>
+                    <h4
+                        class="text-xl font-bold mb-3 text-neutral-900 dark:text-neutral-dark-900"
+                    >
+                        Standard
+                    </h4>
+                    <p
+                        class="text-sm font-medium text-neutral-500 dark:text-neutral-dark-500 mb-8"
+                    >
+                        All the basics for businesses that are just getting
+                        started.
+                    </p>
+                    <div
+                        class="w-full border-b border-neutral-200 dark:border-neutral-dark-200 mb-6"
+                    >
+                    </div>
+                    <ul class="mb-8 space-y-4">
+                        <li class="flex items-center gap-3">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-5 h-5 text-green-500"
+                            >
+                                <path
+                                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                                ></path>
+                            </svg>
+                            <span
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                                >Unlimited updates</span
+                            >
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-5 h-5 text-green-500"
+                            >
+                                <path
+                                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                                ></path>
+                            </svg>
+                            <span
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                                >Custom permissions</span
+                            >
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-5 h-5 text-red-500"
+                            >
+                                <path
+                                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+                                ></path>
+                            </svg>
+                            <span
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                                >Custom designs & features</span
+                            >
+                        </li>
+                    </ul>
+                    <a
+                        href="#"
+                        class="w-full btn border border-neutral-950 dark:border-neutral-dark-300 dark:bg-neutral-dark-0 rounded-full px-6 py-3 text-lg text-neutral-950 dark:text-neutral-dark-950 flex items-center justify-center gap-2"
+                    >
+                        Get Started
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Pricing Card 4 -->
+                <div
+                    class="bg-white dark:bg-neutral-dark-0 rounded-xl p-8 border border-neutral-300 dark:border-neutral-dark-300 transition-all duration-300 hover:shadow-lg"
+                >
+                    <div class="mb-6">
+                        <span class="text-3xl font-bold">$199</span>
+                        <span
+                            class="text-sm font-medium text-neutral-500 dark:text-neutral-dark-500"
+                            >/month</span
+                        >
+                    </div>
+                    <h4
+                        class="text-xl font-bold mb-3 text-neutral-900 dark:text-neutral-dark-900"
+                    >
+                        Standard
+                    </h4>
+                    <p
+                        class="text-sm font-medium text-neutral-500 dark:text-neutral-dark-500 mb-8"
+                    >
+                        All the basics for businesses that are just getting
+                        started.
+                    </p>
+                    <div
+                        class="w-full border-b border-neutral-200 dark:border-neutral-dark-200 mb-6"
+                    >
+                    </div>
+                    <ul class="mb-8 space-y-4">
+                        <li class="flex items-center gap-3">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-5 h-5 text-green-500"
+                            >
+                                <path
+                                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                                ></path>
+                            </svg>
+                            <span
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                                >Unlimited updates</span
+                            >
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-5 h-5 text-green-500"
+                            >
+                                <path
+                                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                                ></path>
+                            </svg>
+                            <span
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                                >Custom permissions</span
+                            >
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-5 h-5 text-red-500"
+                            >
+                                <path
+                                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+                                ></path>
+                            </svg>
+                            <span
+                                class="text-base text-neutral-700 dark:text-neutral-dark-700"
+                                >Custom designs & features</span
+                            >
+                        </li>
+                    </ul>
+                    <a
+                        href="#"
+                        class="w-full btn border border-neutral-950 dark:border-neutral-dark-300 dark:bg-neutral-dark-0 rounded-full px-6 py-3 text-lg text-neutral-950 dark:text-neutral-dark-950 flex items-center justify-center gap-2"
+                    >
+                        Get Started
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section: User Reviews -->
+    <section class="py-16 lg:py-24 bg-neutral-100 dark:bg-neutral-dark-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Left Column -->
+                <div class="lg:w-1/2 lg:pr-12">
+                    <!-- Badge -->
+                    <span
+                        class="inline-block bg-primary-light-100 dark:bg-primary-dark-100 text-primary-light-950 dark:text-primary-dark-950 py-3 px-6 rounded-full text-sm font-medium mb-6"
+                    >
+                        Built Exclusively For You
+                    </span>
+
+                    <!-- Heading -->
+                    <h2
+                        class="heading-2 mb-6 text-neutral-950 dark:text-neutral-dark-950"
+                    >
+                        Don't take our word for it. See what our clients say.
+                    </h2>
+
+                    <!-- Description -->
+                    <p
+                        class="text-lg text-neutral-700 dark:text-neutral-dark-700 mb-8"
+                    >
+                        Aliquam a augue suscipit, luctus neque purus ipsum neque
+                        at dolor primis libero tempus, blandit
+                    </p>
+
+                    <!-- Button -->
+                    <a
+                        href="#"
+                        class="group btn border border-neutral-950 dark:border-neutral-dark-300 dark:bg-neutral-dark-0 rounded-full px-8 py-4 text-lg text-neutral-950 dark:text-neutral-dark-950 flex items-center gap-2 w-fit"
+                    >
+                        <span>Learn More</span>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="group-hover:translate-x-1 transition-transform"
+                        >
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Right Column - Testimonials -->
+                <div class="lg:w-1/2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Testimonial 1 -->
+                        <div
+                            class="bg-white dark:bg-neutral-dark-0 p-8 rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                        >
+                            <blockquote
+                                class="mb-6 text-base text-neutral-700 dark:text-neutral-dark-700"
+                            >
+                                "No matter where you go, It's is the coolest,
+                                most happening thing around! Not able to tell
+                                you how happy I am with it."
+                            </blockquote>
+                            <div class="flex items-center gap-4">
+                                <img
+                                    src="/assets/images/avatar-9.png"
+                                    alt="Jenny Wilson"
+                                    class="w-16 h-16 rounded-full object-cover"
+                                />
+                                <div>
+                                    <h4
+                                        class="text-lg font-bold text-neutral-900 dark:text-neutral-dark-900"
+                                    >
+                                        Jenny Wilson
+                                    </h4>
+                                    <p
+                                        class="text-sm text-neutral-500 dark:text-neutral-dark-500"
+                                    >
+                                        Biffco Enterprises Ltd.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div
+                            class="bg-white dark:bg-neutral-dark-0 p-8 rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                        >
+                            <blockquote
+                                class="mb-6 text-base text-neutral-700 dark:text-neutral-dark-700"
+                            >
+                                "Wow what great service, I love it! It's is the
+                                most valuable business resource we have EVER
+                                purchased. We can't understand how we've been
+                                living without it."
+                            </blockquote>
+                            <div class="flex items-center gap-4">
+                                <img
+                                    src="/assets/images/avatar-10.png"
+                                    alt="Jenny Wilson"
+                                    class="w-16 h-16 rounded-full object-cover"
+                                />
+                                <div>
+                                    <h4
+                                        class="text-lg font-bold text-neutral-900 dark:text-neutral-dark-900"
+                                    >
+                                        Jenny Wilson
+                                    </h4>
+                                    <p
+                                        class="text-sm text-neutral-500 dark:text-neutral-dark-500"
+                                    >
+                                        Biffco Enterprises Ltd.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div
+                            class="bg-white dark:bg-neutral-dark-0 p-8 rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                        >
+                            <blockquote
+                                class="mb-6 text-base text-neutral-700 dark:text-neutral-dark-700"
+                            >
+                                "Your company is truly upstanding and is behind
+                                its product 100%. It's the perfect solution for
+                                our business. It has really helped our
+                                business."
+                            </blockquote>
+                            <div class="flex items-center gap-4">
+                                <img
+                                    src="/assets/images/avatar-11.png"
+                                    alt="Jenny Wilson"
+                                    class="w-16 h-16 rounded-full object-cover"
+                                />
+                                <div>
+                                    <h4
+                                        class="text-lg font-bold text-neutral-900 dark:text-neutral-dark-900"
+                                    >
+                                        Jenny Wilson
+                                    </h4>
+                                    <p
+                                        class="text-sm text-neutral-500 dark:text-neutral-dark-500"
+                                    >
+                                        Biffco Enterprises Ltd.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 4 -->
+                        <div
+                            class="bg-white dark:bg-neutral-dark-0 p-8 rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                        >
+                            <blockquote
+                                class="mb-6 text-base text-neutral-700 dark:text-neutral-dark-700"
+                            >
+                                "It's is both attractive and highly adaptable.
+                                It's exactly what I've been looking for.
+                                Definitely worth the investment."
+                            </blockquote>
+                            <div class="flex items-center gap-4">
+                                <img
+                                    src="/assets/images/avatar-12.png"
+                                    alt="Jenny Wilson"
+                                    class="w-16 h-16 rounded-full object-cover"
+                                />
+                                <div>
+                                    <h4
+                                        class="text-lg font-bold text-neutral-900 dark:text-neutral-dark-900"
+                                    >
+                                        Jenny Wilson
+                                    </h4>
+                                    <p
+                                        class="text-sm text-neutral-500 dark:text-neutral-dark-500"
+                                    >
+                                        Biffco Enterprises Ltd.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</MainWebsite>

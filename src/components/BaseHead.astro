@@ -3,7 +3,6 @@ import "@fontsource-variable/roboto-slab";
 import FallbackImage from "@src/assets/meta/open-graph.png";
 import "@src/css/main.css";
 import "@src/css/vendors/animate.min.css";
-import { translatePath } from "@src/utils/i18n";
 import type { ImageMetadata } from "astro";
 
 interface Props {
@@ -28,17 +27,14 @@ const ogImage = new URL(image.src, Astro.url);
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
 
 <!-- Favicon and Icons -->
-<link rel="icon" href={translatePath("/meta/logo.svg")} />
-<link rel="shortcut icon" href={translatePath("/meta/favicon-16x16.png")} />
-<link
-    rel="apple-touch-icon"
-    href={translatePath("/meta/apple-touch-icon.png")}
-/>
-<link rel="manifest" href={translatePath("/meta/developbharat.webmanifest")} />
+<link rel="icon" href={"/meta/logo.svg"} />
+<link rel="shortcut icon" href={"/meta/favicon-16x16.png"} />
+<link rel="apple-touch-icon" href={"/meta/apple-touch-icon.png"} />
+<link rel="manifest" href={"/meta/developbharat.webmanifest"} />
 
 <!-- Canonical URL & Sitemap -->
 <link rel="canonical" href={canonicalURL} />
-<link rel="sitemap" href={translatePath("/sitemap-index.xml")} />
+<link rel="sitemap" href={"/sitemap-index.xml"} />
 <link
     rel="alternate"
     type="application/rss+xml"
