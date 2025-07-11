@@ -1,7 +1,20 @@
 ---
+import { Image } from "astro:assets";
 import { changeLanguage } from "i18next";
 import MainWebsite from "@layouts/MainWebsite.astro";
 import { translatePath, t } from "@utils/i18n";
+
+import iHero from "@assets/illustrations/about/hero.png";
+import i1 from "@assets/illustrations/about/1.png";
+import iAvatar1 from "@assets/avatar/avatar-03.png";
+import iAvatar2 from "@assets/avatar/avatar-04.png";
+import iAvatar3 from "@assets/avatar/avatar-05.png";
+import iGallery1 from "@assets/illustrations/gallery/gallery-01.png";
+import iGallery2 from "@assets/illustrations/gallery/gallery-02.png";
+import iGallery3 from "@assets/illustrations/gallery/gallery-03.png";
+import iGallery4 from "@assets/illustrations/gallery/gallery-04.png";
+import iGallery5 from "@assets/illustrations/gallery/gallery-05.png";
+import iGallery6 from "@assets/illustrations/gallery/gallery-06.png";
 
 changeLanguage("hi");
 ---
@@ -39,7 +52,7 @@ changeLanguage("hi");
                 <div
                     class="hidden lg:flex lg:w-1/2 lg:pl-8 justify-center items-center"
                 >
-                    <img src="assets/imgs/template/404.png" alt="" />
+                    <Image src={iHero} alt="About us illustration" />
                 </div>
             </div>
 
@@ -83,9 +96,9 @@ changeLanguage("hi");
                     </a>
                 </div>
             </div>
-            <img
-                src="assets/imgs/pages/img-29.png"
-                alt=""
+            <Image
+                src={i1}
+                alt="About us illustration"
                 class="mt-12 rounded-3xl"
             />
         </div>
@@ -144,8 +157,8 @@ changeLanguage("hi");
                             {t.about.testimonials.testimonial1.text}
                         </p>
                         <div class="flex flex-wrap flex-row gap-3 items-center">
-                            <img
-                                src="assets/imgs/avatar/avatar-03.png"
+                            <Image
+                                src={iAvatar1}
                                 alt=""
                                 class="rounded-full size-16"
                             />
@@ -171,8 +184,8 @@ changeLanguage("hi");
                             {t.about.testimonials.testimonial2.text}
                         </p>
                         <div class="flex flex-wrap flex-row gap-3 items-center">
-                            <img
-                                src="assets/imgs/avatar/avatar-04.png"
+                            <Image
+                                src={iAvatar2}
                                 alt=""
                                 class="rounded-full size-16"
                             />
@@ -198,8 +211,8 @@ changeLanguage("hi");
                             {t.about.testimonials.testimonial3.text}
                         </p>
                         <div class="flex flex-wrap flex-row gap-3 items-center">
-                            <img
-                                src="assets/imgs/avatar/avatar-05.png"
+                            <Image
+                                src={iAvatar3}
                                 alt=""
                                 class="rounded-full size-16"
                             />
@@ -234,32 +247,32 @@ changeLanguage("hi");
                 <a
                     href="assets/imgs/gallery/gallery-01.png"
                     data-lightbox="ideko-gallery"
-                    ><img src="assets/imgs/gallery/gallery-01.png" alt="" /></a
+                    ><Image src={iGallery1} alt="" /></a
                 >
                 <a
                     href="assets/imgs/gallery/gallery-02.png"
                     data-lightbox="ideko-gallery"
-                    ><img src="assets/imgs/gallery/gallery-02.png" alt="" /></a
+                    ><Image src={iGallery2} alt="" /></a
                 >
                 <a
                     href="assets/imgs/gallery/gallery-03.png"
                     data-lightbox="ideko-gallery"
-                    ><img src="assets/imgs/gallery/gallery-03.png" alt="" /></a
+                    ><Image src={iGallery3} alt="" /></a
                 >
                 <a
                     href="assets/imgs/gallery/gallery-04.png"
                     data-lightbox="ideko-gallery"
-                    ><img src="assets/imgs/gallery/gallery-04.png" alt="" /></a
+                    ><Image src={iGallery4} alt="" /></a
                 >
                 <a
                     href="assets/imgs/gallery/gallery-05.png"
                     data-lightbox="ideko-gallery"
-                    ><img src="assets/imgs/gallery/gallery-05.png" alt="" /></a
+                    ><Image src={iGallery5} alt="" /></a
                 >
                 <a
                     href="assets/imgs/gallery/gallery-06.png"
                     data-lightbox="ideko-gallery"
-                    ><img src="assets/imgs/gallery/gallery-06.png" alt="" /></a
+                    ><Image src={iGallery6} alt="" /></a
                 >
             </div>
         </div>

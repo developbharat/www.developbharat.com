@@ -3,7 +3,8 @@ export const parseArticleId = (id: string) => {
   const splits = id.split("/");
   if (splits.length <= 2) throw new Error("Invalid post id found.");
   return {
-    category: splits[0],
+    categoryValue: splits[0],
+    categoryName: splits[0],
     slug: splits[1],
     path: splits[0] + "/" + splits[1],
   };

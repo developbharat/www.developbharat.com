@@ -5,19 +5,26 @@ import Footer from "@components/Footer.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import Header from "@components/Header.astro";
 import { parseArticleId } from "@utils/articles";
-import { SITE_DESCRIPTION, SITE_TITLE } from "@utils/consts";
 import { Image } from "astro:assets";
 import { type CollectionEntry, getCollection } from "astro:content";
+
+// TODO: Fix it
+const SITE_TITLE = "";
+const SITE_DESCRIPTION = "";
 
 changeLanguage("hi");
 
 export async function getStaticPaths() {
     const posts = await getCollection("articles");
-    const categories = Array.from(new Set(posts.map((post) => parseArticleId(post.id).category)));
+    const categories = Array.from(
+        new Set(posts.map((post) => parseArticleId(post.id).categoryValue)),
+    );
     return categories.map((cat) => {
         const articles = posts
-            .filter((post) => parseArticleId(post.id).category === cat)
-            .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+            .filter((post) => parseArticleId(post.id).categoryValue === cat)
+            .sort(
+                (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+            );
         return { params: { category: cat }, props: { articles } };
     });
 }
@@ -125,7 +132,10 @@ const { articles } = Astro.props;
                                     <h4 class="title">{article.data.title}</h4>
                                     <p>
                                         Category:{" "}
-                                        {parseArticleId(article.id).category}
+                                        {
+                                            parseArticleId(article.id)
+                                                .categoryValue
+                                        }
                                     </p>
                                     <p class="date">
                                         <FormattedDate

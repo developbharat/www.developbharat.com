@@ -100,7 +100,12 @@ changeLanguage("hi");
                                     {t.accounts.signin.form.labels.remember_me}
                                 </label>
                             </div>
-                            <a href="#" class="text-sm">
+                            <a
+                                href={translatePath(
+                                    "/accounts/forgot-password",
+                                )}
+                                class="text-sm"
+                            >
                                 {t.accounts.signin.form.links.forgot_password}
                             </a>
                         </div>
@@ -168,7 +173,7 @@ changeLanguage("hi");
                             class="text-center text-lg font-medium text-neutral-700 dark:text-neutral-dark-700 pt-8 pb-12"
                         >
                             {t.accounts.signin.form.account_doesnot_exist}
-                            <a href="page-register.html">
+                            <a href={translatePath("/accounts/signup")}>
                                 {t.accounts.signin.form.links.create_account}
                             </a>
                         </p>
