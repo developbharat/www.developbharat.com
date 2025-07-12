@@ -1,5 +1,6 @@
 ---
 import Logo from "@assets/meta/logo.svg";
+import { t } from "@utils/i18n";
 ---
 
 <!-- Footer -->
@@ -14,9 +15,7 @@ import Logo from "@assets/meta/logo.svg";
                 <h3
                     class="text-3xl md:text-4xl lg:text-6xl font-normal text-neutral-950 dark:text-neutral-dark-950 leading-tight"
                 >
-                    सब्सक्राइब करें और पाएं नए प्रोडक्ट लॉन्च, प्लेटफ़ॉर्म
-                    मेंटेनेंस अपडेट्स, ब्लॉग्स और महत्वपूर्ण घोषणाओं की जानकारी
-                    !
+                    {t.footer.newsletter.title}
                 </h3>
             </div>
             <div class="mb-12 md:mb-0">
@@ -27,7 +26,7 @@ import Logo from "@assets/meta/logo.svg";
                         <input
                             class="focus:outline-none transition duration-200 py-4 bg-neutral-0 dark:bg-neutral-dark-200 rounded-full pl-6 w-full mb-2 md:mb-0 md:border-0 border border-neutral-300 dark:border-neutral-dark-300"
                             type="text"
-                            placeholder="Email address"
+                            placeholder={t.footer.newsletter.email_placeholder}
                         />
                         <button
                             class="w-full sm:w-auto h-14 py-4 px-6 rounded-full bg-primary-light-950 dark:bg-primary-dark-950 transition duration-200 flex items-center justify-center gap-2"
@@ -47,26 +46,9 @@ import Logo from "@assets/meta/logo.svg";
                                 ></path>
                             </svg>
                             <span class="text-neutral-950 font-medium text-2xl"
-                                >जुड़ें</span
+                                >{t.footer.newsletter.submit}़ें</span
                             >
                         </button>
-                    </div>
-                    <div class="flex items-start justify-start mt-8 pl-4">
-                        <input
-                            id="checkbox"
-                            type="checkbox"
-                            class="w-4 h-4 accent-primary-light-950 bg-primary-light-950 text-neutral-0 rounded cursor-pointer"
-                        />
-                        <label
-                            for="checkbox"
-                            class="text-neutral-700 text-sm ml-2 cursor-pointer"
-                            >मैं सभी
-                            <a
-                                href="#"
-                                class="text-neutral-950 dark:text-neutral-dark-950 font-bold"
-                                >नियमों और शर्तों से सहमत हूं।</a
-                            ></label
-                        >
                     </div>
                 </form>
             </div>
@@ -89,8 +71,7 @@ import Logo from "@assets/meta/logo.svg";
                 <p
                     class="font-medium text-neutral-950 dark:text-neutral-dark-950 mb-8 lg:mb-12 max-w-[350px]"
                 >
-                    It involves entrepreneurship, management, marketing,
-                    finance, and many other aspects. Businesses aim to generate
+                    {t.footer.about}
                 </p>
                 <div class="flex gap-2">
                     <div
@@ -148,35 +129,35 @@ import Logo from "@assets/meta/logo.svg";
                     <h6
                         class="text-base font-bold text-neutral-700 dark:text-neutral-dark-700 mb-2"
                     >
-                        Category
+                        {t.footer.columns.products.title}
                     </h6>
                     <ul>
                         <li class="footer-menu">
                             <a
                                 href="category.html"
                                 class="text-base font-regular text-neutral-950 dark:text-neutral-dark-950"
-                                >Trending</a
+                                >{t.footer.columns.products.links.hindmail}</a
                             >
                         </li>
                         <li class="footer-menu">
                             <a
                                 href="category-2.html"
                                 class="text-base font-regular text-neutral-950 dark:text-neutral-dark-950"
-                                >Fashion</a
+                                >{t.footer.columns.products.links.uistudio}</a
                             >
                         </li>
                         <li class="footer-menu">
                             <a
                                 href="category-3.html"
                                 class="text-base font-regular text-neutral-950 dark:text-neutral-dark-950"
-                                >Technology</a
+                                >{t.footer.columns.products.links.torrenthub}</a
                             >
                         </li>
                         <li class="footer-menu">
                             <a
                                 href="category-4.html"
                                 class="text-base font-regular text-neutral-950 dark:text-neutral-dark-950"
-                                >Healthy</a
+                                >{t.footer.columns.products.links.more}</a
                             >
                         </li>
                     </ul>
@@ -185,35 +166,35 @@ import Logo from "@assets/meta/logo.svg";
                     <h6
                         class="text-base font-bold text-neutral-700 dark:text-neutral-dark-700 mb-2"
                     >
-                        Pages
+                        {t.footer.columns.company.title}
                     </h6>
                     <ul>
                         <li class="footer-menu">
                             <a
                                 href="page-about.html"
                                 class="text-base font-regular text-neutral-950 dark:text-neutral-dark-950"
-                                >About me</a
+                                >{t.footer.columns.company.links.aboutus}</a
                             >
                         </li>
                         <li class="footer-menu">
                             <a
                                 href="page-contact.html"
                                 class="text-base font-regular text-neutral-950 dark:text-neutral-dark-950"
-                                >Contact</a
+                                >{t.footer.columns.company.links.contactus}</a
                             >
                         </li>
                         <li class="footer-menu">
                             <a
                                 href="page-author.html"
                                 class="text-base font-regular text-neutral-950 dark:text-neutral-dark-950"
-                                >Author</a
+                                >{t.footer.columns.company.links.blog}</a
                             >
                         </li>
                         <li class="footer-menu">
                             <a
                                 href="page-search.html"
                                 class="text-base font-regular text-neutral-950 dark:text-neutral-dark-950"
-                                >Search results</a
+                                >{t.footer.columns.company.links.contribute}</a
                             >
                         </li>
                     </ul>
@@ -222,35 +203,41 @@ import Logo from "@assets/meta/logo.svg";
                     <h6
                         class="text-base font-bold text-neutral-700 dark:text-neutral-dark-700 mb-2"
                     >
-                        Account
+                        {t.footer.columns.resources.title}
                     </h6>
                     <ul>
                         <li class="footer-menu">
                             <a
                                 href="page-register.html"
                                 class="text-base font-regular text-neutral-950 dark:text-neutral-dark-950"
-                                >Register</a
+                                >{t.footer.columns.resources.links.signin}</a
                             >
                         </li>
                         <li class="footer-menu">
                             <a
                                 href="page-login.html"
                                 class="text-base font-regular text-neutral-950 dark:text-neutral-dark-950"
-                                >Login</a
+                                >{t.footer.columns.resources.links.signup}</a
                             >
                         </li>
                         <li class="footer-menu">
                             <a
                                 href="page-forgot-password.html"
                                 class="text-base font-regular text-neutral-950 dark:text-neutral-dark-950"
-                                >Forgot Password</a
+                                >{
+                                    t.footer.columns.resources.links
+                                        .privacy_policy
+                                }</a
                             >
                         </li>
                         <li class="footer-menu">
                             <a
                                 href="page-404.html"
                                 class="text-base font-regular text-neutral-950 dark:text-neutral-dark-950"
-                                >404</a
+                                >{
+                                    t.footer.columns.resources.links
+                                        .terms_and_conditions
+                                }</a
                             >
                         </li>
                     </ul>

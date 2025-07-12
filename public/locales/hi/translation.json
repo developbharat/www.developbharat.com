@@ -17,6 +17,43 @@
       "label": "Develop Bharat,Mokhra Khas (101 Rohtak), Haryana,India"
     }
   },
+  "footer": {
+    "newsletter": {
+      "title": "सब्सक्राइब करें और पाएं नए प्रोडक्ट लॉन्च, प्लेटफ़ॉर्म मेंटेनेंस अपडेट्स, ब्लॉग्स और महत्वपूर्ण घोषणाओं की जानकारी !",
+      "email_placeholder": "Email address",
+      "submit": "जुड़ें"
+    },
+    "about": "ईमेल और सोशल मीडिया से लेकर एआई टूल्स और नो-कोड टूल्स तक — हम ऐसे प्रोफेशनल प्रोडक्ट्स बनाते हैं जो आपका समय बचाएं और आपकी कार्यक्षमता बढ़ाएं।",
+    "columns": {
+      "products": {
+        "title": "प्रोडक्ट्स",
+        "links": {
+          "hindmail": "Hind Mail",
+          "uistudio": "UI Studio",
+          "torrenthub": "Torrent Hub",
+          "more": "अधिक जानें"
+        }
+      },
+      "company": {
+        "title": "कंपनी",
+        "links": {
+          "aboutus": "हमारे बारे में",
+          "contactus": "हमसे संपर्क करें",
+          "blog": "Blog",
+          "contribute": "आंदोलन का हिस्सा बनें"
+        }
+      },
+      "resources": {
+        "title": "रीसोर्सेज़",
+        "links": {
+          "signin": "साइन इन",
+          "signup": "Sign up",
+          "privacy_policy": "प्राइवेसी पॉलिसी",
+          "terms_and_conditions": "नियम और शर्तें"
+        }
+      }
+    }
+  },
   "articles": {
     "index": {
       "title": "स्वागत है आपका, श्रेष्ठ भारत के सपने मे।",
