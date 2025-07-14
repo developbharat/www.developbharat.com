@@ -1,154 +1,255 @@
 ---
-import { changeLanguage } from "i18next";
-import BaseHead from "@components/BaseHead.astro";
-import Footer from "@components/Footer.astro";
+import iFallbackArticle from "@assets/illustrations/articles/fallback.png";
 import FormattedDate from "@components/FormattedDate.astro";
-import Header from "@components/Header.astro";
+import MainWebsite from "@layouts/MainWebsite.astro";
 import { parseArticleId } from "@utils/articles";
+import { t, translatePath } from "@utils/i18n";
 import { Image } from "astro:assets";
 import { type CollectionEntry, getCollection } from "astro:content";
-
-// TODO: Fix it
-const SITE_TITLE = "";
-const SITE_DESCRIPTION = "";
+import { changeLanguage } from "i18next";
 
 changeLanguage("hi");
 
 export async function getStaticPaths() {
     const posts = await getCollection("articles");
-    const categories = Array.from(
-        new Set(posts.map((post) => parseArticleId(post.id).categoryValue)),
-    );
+    const categories = posts
+        .map((article) => ({
+            name: parseArticleId(article.id).categoryName,
+            value: parseArticleId(article.id).categoryValue,
+        }))
+        .filter(
+            (article, index, self) =>
+                self.map((a) => a.value).indexOf(article.value) === index,
+        );
+
     return categories.map((cat) => {
         const articles = posts
-            .filter((post) => parseArticleId(post.id).categoryValue === cat)
+            .filter(
+                (post) => parseArticleId(post.id).categoryValue === cat.value,
+            )
             .sort(
                 (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
             );
-        return { params: { category: cat }, props: { articles } };
+
+        const category = articles
+            ? {
+                  value: parseArticleId(articles[0].id).categoryValue,
+                  name: parseArticleId(articles[0].id).categoryName,
+              }
+            : { name: cat, value: cat };
+        return {
+            params: { category: cat.value },
+            props: { articles, category, categories },
+        };
     });
 }
 interface Props {
     articles: CollectionEntry<"articles">[];
+    category: { name: string; value: string };
+    categories: { name: string; value: string }[];
 }
-const { category } = Astro.params;
-const { articles } = Astro.props;
+const { articles, category, categories } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-        <style>
-            main {
-                width: 960px;
-            }
-            ul {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 2rem;
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-            ul li {
-                width: calc(50% - 1rem);
-            }
-            ul li * {
-                text-decoration: none;
-                transition: 0.2s ease;
-            }
-            ul li:first-child {
-                width: 100%;
-                margin-bottom: 1rem;
-                text-align: center;
-            }
-            ul li:first-child img {
-                width: 100%;
-            }
-            ul li:first-child .title {
-                font-size: 2.369rem;
-            }
-            ul li img {
-                margin-bottom: 0.5rem;
-                border-radius: 12px;
-            }
-            ul li a {
-                display: block;
-            }
-            .title {
-                margin: 0;
-                color: rgb(var(--black));
-                line-height: 1;
-            }
-            .date {
-                margin: 0;
-                color: rgb(var(--gray));
-            }
-            ul li a:hover h4,
-            ul li a:hover .date {
-                color: rgb(var(--accent));
-            }
-            ul a:hover img {
-                box-shadow: var(--box-shadow);
-            }
-            @media (max-width: 720px) {
-                ul {
-                    gap: 0.5em;
-                }
-                ul li {
-                    width: 100%;
-                    text-align: center;
-                }
-                ul li:first-child {
-                    margin-bottom: 0;
-                }
-                ul li:first-child .title {
-                    font-size: 1.563em;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <Header />
-        <main>
-            <h1>Category: {category}</h1>
-            <section>
-                <ul>
+<MainWebsite
+    title={t.articles.category.title}
+    description={t.articles.category.description}
+>
+    <!-- Category 1 Section 1 -->
+    <section class="relative py-20 lg:py-12">
+        <div class="container mx-auto px-4">
+            <div
+                class="flex flex-col gap-8 items-center justify-center text-center"
+            >
+                <!-- breadcrumb -->
+                <div
+                    class="hidden md:flex gap-2.5 justify-start items-center h-12 px-7 py-3.5 bg-neutral-0 dark:bg-neutral-dark-0 rounded-3xl border border-neutral-300 dark:border-neutral-dark-300"
+                >
+                    <a
+                        href={translatePath("/")}
+                        class="text-neutral-700 dark:text-neutral-dark-700 text-base font-medium leading-normal"
+                        >Home</a
+                    >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="8"
+                        height="12"
+                        viewBox="0 0 8 12"
+                        class="fill-neutral-700 dark:fill-neutral-dark-700"
+                    >
+                        <path
+                            d="M1.52344 11.9961C1.24219 11.9961 0.992188 11.9023 0.804688 11.7148C0.398438 11.3398 0.398438 10.6836 0.804688 10.3086L5.08594 5.99609L0.804688 1.71484C0.398438 1.33984 0.398438 0.683594 0.804688 0.308594C1.17969 -0.0976562 1.83594 -0.0976562 2.21094 0.308594L7.21094 5.30859C7.61719 5.68359 7.61719 6.33984 7.21094 6.71484L2.21094 11.7148C2.02344 11.9023 1.77344 11.9961 1.52344 11.9961Z"
+                        ></path>
+                    </svg>
+                    <a
+                        href={translatePath("/articles")}
+                        class="text-neutral-700 dark:text-neutral-dark-700 text-base font-medium leading-normal"
+                        >Blog</a
+                    >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="8"
+                        height="12"
+                        viewBox="0 0 8 12"
+                        class="fill-neutral-700 dark:fill-neutral-dark-700"
+                    >
+                        <path
+                            d="M1.52344 11.9961C1.24219 11.9961 0.992188 11.9023 0.804688 11.7148C0.398438 11.3398 0.398438 10.6836 0.804688 10.3086L5.08594 5.99609L0.804688 1.71484C0.398438 1.33984 0.398438 0.683594 0.804688 0.308594C1.17969 -0.0976562 1.83594 -0.0976562 2.21094 0.308594L7.21094 5.30859C7.61719 5.68359 7.61719 6.33984 7.21094 6.71484L2.21094 11.7148C2.02344 11.9023 1.77344 11.9961 1.52344 11.9961Z"
+                        ></path>
+                    </svg>
+                    <span
+                        class="text-neutral-700 dark:text-neutral-dark-700 text-base font-medium leading-normal"
+                        >{category.name}</span
+                    >
+                </div>
+                <h1 class="heading-1 mb-0">
+                    {category.name}
+                </h1>
+                <p
+                    class="text-base md:text-lg font-medium text-neutral-950 dark:text-neutral-dark-950 max-w-3xl"
+                >
+                    Tech, fashion, lifestyle – your daily dose of innovation,
+                    style, and living. Explore the intersection in a byte-sized
+                    journey.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 1 Section 3 -->
+    <section class="relative pt-20 py-10 lg:pt-12 lg:pb-24">
+        <div class="container mx-auto px-4">
+            <div
+                class="flex flex-col justify-start mb-16 items-start lg:flex-row lg:justify-between lg:items-end"
+            >
+                <h3 class="heading-2 text-left mb-4 lg:mb-0">
+                    <span class="font-light">Posts about </span>
+                    {category.name}
+                </h3>
+                <div
+                    class="justify-start items-start gap-2 inline-flex flex-wrap mb-3"
+                >
                     {
-                        articles.map((article) => (
-                            <li>
-                                <a
-                                    href={`/articles/${parseArticleId(article.id).path}`}
-                                >
-                                    {article.data.heroImage && (
-                                        <Image
-                                            width={720}
-                                            height={360}
-                                            src={article.data.heroImage}
-                                            alt=""
-                                        />
-                                    )}
-                                    <h4 class="title">{article.data.title}</h4>
-                                    <p>
-                                        Category:{" "}
-                                        {
-                                            parseArticleId(article.id)
-                                                .categoryValue
-                                        }
-                                    </p>
-                                    <p class="date">
-                                        <FormattedDate
-                                            date={article.data.pubDate}
-                                        />
-                                    </p>
-                                </a>
-                            </li>
+                        categories.map((cat) => (
+                            <a
+                                class="button-7 hover-up"
+                                href={translatePath(`/articles/${cat.value}`)}
+                            >
+                                {cat.name}
+                            </a>
                         ))
                     }
-                </ul>
-            </section>
-        </main>
-        <Footer />
-    </body>
-</html>
+                </div>
+            </div>
+            <div class="flex flex-col gap-16">
+                <div
+                    class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-[30px] gap-y-[65px]"
+                >
+                    {
+                        articles.map((article) => (
+                            <div class="flex-col justify-start items-start gap-5 inline-flex hover-up mb-4">
+                                <a
+                                    href={translatePath(
+                                        `/articles/${parseArticleId(article.id).path}`,
+                                    )}
+                                    class="rounded-3xl overflow-hidden max-h-[370px]"
+                                >
+                                    <Image
+                                        src={
+                                            article.data.heroImage ||
+                                            iFallbackArticle
+                                        }
+                                        alt="article Hero image"
+                                    />
+                                </a>
+                                <div class="flex-col justify-start items-start gap-3.5 flex">
+                                    <div class="justify-start items-center gap-5 inline-flex">
+                                        <div class="justify-start items-center gap-2 flex">
+                                            <div class="text-neutral-700 text-sm font-medium leading-none dark:text-neutral-dark-700">
+                                                <FormattedDate
+                                                    date={article.data.pubDate}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3>
+                                        <a
+                                            class="text-neutral-950 dark:text-neutral-dark-950 text-2xl font-bold leading-snug item-link"
+                                            href={translatePath(
+                                                `/articles/${parseArticleId(article.id).path}`,
+                                            )}
+                                        >
+                                            {article.data.title}
+                                        </a>
+                                    </h3>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+                <div class="relative">
+                    <!-- pagination -->
+                    <div class="flex items-center justify-start">
+                        <nav
+                            class="flex items-center gap-2"
+                            aria-label="Pagination"
+                        >
+                            <a
+                                href="#"
+                                class="text-neutral-950 rounded-full w-12 h-12 bg-primary-light-200 hover:bg-primary-light-300 dark:bg-primary-dark-200 dark:hover:bg-primary-dark-300 flex justify-center items-center"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18"
+                                    height="15"
+                                    viewBox="0 0 18 15"
+                                    class="fill-neutral-950 dark:fill-neutral-dark-950"
+                                >
+                                    <path
+                                        d="M17.4922 7.49023C17.4922 8.19336 16.9453 8.74023 16.2812 8.74023H4.28906L8.39062 12.8809C8.89844 13.3496 8.89844 14.1699 8.39062 14.6387C8.15625 14.873 7.84375 14.9902 7.53125 14.9902C7.17969 14.9902 6.86719 14.873 6.63281 14.6387L0.382812 8.38867C-0.125 7.91992 -0.125 7.09961 0.382812 6.63086L6.63281 0.380859C7.10156 -0.126953 7.92188 -0.126953 8.39062 0.380859C8.89844 0.849609 8.89844 1.66992 8.39062 2.13867L4.28906 6.24023H16.2812C16.9453 6.24023 17.4922 6.82617 17.4922 7.49023Z"
+                                    ></path>
+                                </svg>
+                            </a>
+                            <a
+                                href="#"
+                                class="active text-xl font-bold text-neutral-950 bg-primary-light-950 dark:text-neutral-dark-950 dark:bg-primary-dark-950 rounded-full w-12 h-12 flex items-center justify-center"
+                                >1</a
+                            >
+                            <a
+                                href="#"
+                                class="text-xl font-bold text-neutral-950 rounded-full bg-primary-light-200 hover:bg-primary-light-300 dark:text-neutral-dark-950 dark:bg-primary-dark-200 dark:hover:bg-primary-dark-300 w-12 h-12 flex items-center justify-center"
+                                >2</a
+                            >
+                            <a
+                                href="#"
+                                class="text-xl font-bold text-neutral-950 rounded-full bg-primary-light-200 hover:bg-primary-light-300 dark:text-neutral-dark-950 dark:bg-primary-dark-200 dark:hover:bg-primary-dark-300 w-12 h-12 flex items-center justify-center"
+                                >3</a
+                            >
+                            <a
+                                href="#"
+                                class="text-xl font-bold text-neutral-950 rounded-full bg-primary-light-200 hover:bg-primary-light-300 dark:text-neutral-dark-950 dark:bg-primary-dark-200 dark:hover:bg-primary-dark-300 w-12 h-12 flex items-center justify-center"
+                                >4</a
+                            >
+                            <a
+                                href="#"
+                                class="text-neutral-950 rounded-full w-12 h-12 bg-primary-light-200 hover:bg-primary-light-300 dark:bg-primary-dark-200 dark:hover:bg-primary-dark-300 flex justify-center items-center"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18"
+                                    height="15"
+                                    viewBox="0 0 18 15"
+                                    class="fill-neutral-950 dark:fill-neutral-dark-950"
+                                >
+                                    <path
+                                        d="M0 7.49023C0 8.19336 0.546875 8.74023 1.21094 8.74023H13.2031L9.10156 12.8809C8.59375 13.3496 8.59375 14.1699 9.10156 14.6387C9.33594 14.873 9.64844 14.9902 9.96094 14.9902C10.3125 14.9902 10.625 14.873 10.8594 14.6387L17.1094 8.38867C17.6172 7.91992 17.6172 7.09961 17.1094 6.63086L10.8594 0.380859C10.3906 -0.126953 9.57031 -0.126953 9.10156 0.380859C8.59375 0.849609 8.59375 1.66992 9.10156 2.13867L13.2031 6.24023H1.21094C0.546875 6.24023 0 6.82617 0 7.49023Z"
+                                    ></path>
+                                </svg>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</MainWebsite>

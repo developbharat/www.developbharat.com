@@ -6,10 +6,9 @@ import { t, translatePath } from "@utils/i18n";
 changeLanguage("hi");
 ---
 
-<MainWebsite title={t.site.title} description={t.site.description}>
+<MainWebsite title={t.contact.title} description={t.contact.description}>
     <section class="py-12">
         <div class="container mx-auto px-4">
-            <!-- breadcrumb -->
             <div
                 class="flex flex-col gap-8 items-center justify-center text-center"
             >
@@ -18,10 +17,11 @@ changeLanguage("hi");
                     class="hidden md:flex gap-2.5 justify-start items-center h-12 px-7 py-3.5 bg-neutral-0 dark:bg-neutral-dark-0 rounded-3xl border border-neutral-300 dark:border-neutral-dark-300"
                 >
                     <a
-                        href="index.html"
+                        href={translatePath("/")}
                         class="text-neutral-700 dark:text-neutral-dark-700 text-base font-medium leading-normal"
-                        >Home</a
                     >
+                        {t.contact.breadcrumb.home}
+                    </a>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="8"
@@ -33,26 +33,22 @@ changeLanguage("hi");
                             d="M1.52344 11.9961C1.24219 11.9961 0.992188 11.9023 0.804688 11.7148C0.398438 11.3398 0.398438 10.6836 0.804688 10.3086L5.08594 5.99609L0.804688 1.71484C0.398438 1.33984 0.398438 0.683594 0.804688 0.308594C1.17969 -0.0976562 1.83594 -0.0976562 2.21094 0.308594L7.21094 5.30859C7.61719 5.68359 7.61719 6.33984 7.21094 6.71484L2.21094 11.7148C2.02344 11.9023 1.77344 11.9961 1.52344 11.9961Z"
                         ></path>
                     </svg>
-                    <a
-                        href="category.html"
+                    <span
                         class="text-neutral-700 dark:text-neutral-dark-700 text-base font-medium leading-normal"
-                        >Contact Us</a
                     >
+                        {t.contact.breadcrumb.contact}
+                    </span>
                 </div>
-                <h1 class="heading-1 mb-0">
-                    बात करें, <span class="font-light"
-                        >सुझाव दें, बदलाव लाएं</span
-                    >
-                </h1>
+                <h1 class="heading-1 mb-0" set:html={t.contact.heading} />
                 <p
                     class="text-2xl font-medium text-center text-neutral-700 dark:text-neutral-dark-700 lg:max-w-[715px]"
                 >
-                    कॉल करें या ईमेल भेजें — सवाल पूछिए, सुझाव दीजिए… क्योंकि
-                    बात करने से ही तो हर समस्या का हल निकलता है।
+                    {t.contact.subheading}
                 </p>
             </div>
         </div>
     </section>
+
     <section class="py-12">
         <div class="container mx-auto px-4">
             <div
@@ -61,46 +57,35 @@ changeLanguage("hi");
                 <h4
                     class="text-neutral-950 dark:text-neutral-dark-950 text-3xl font-bold mb-8"
                 >
-                    <span class="font-light">सीधे हमसे</span> जुड़ें
+                    {t.contact.form.title}
                 </h4>
                 <form action="">
                     <div class="grid md:grid-cols-3 gap-4 mb-4 md:mb-0">
                         <input
                             type="text"
-                            placeholder="नाम"
+                            placeholder={t.contact.form.placeholders.name}
                             class="input-default"
                         />
                         <input
                             type="email"
-                            placeholder="ईमेल"
+                            placeholder={t.contact.form.placeholders.email}
                             class="input-default"
                         />
                         <input
                             type="text"
-                            placeholder="विषय"
+                            placeholder={t.contact.form.placeholders.subject}
                             class="input-default"
                         />
                     </div>
-                    <textarea placeholder="संदेश " class="textarea-default"
-                    ></textarea>
-                    <div class="flex items-center mb-8">
-                        <input
-                            type="checkbox"
-                            id="save-info"
-                            class="w-4 h-4 accent-primary-light-950 bg-primary-light-950 text-neutral-0 rounded cursor-pointer mr-2"
-                        />
-                        <label
-                            for="save-info"
-                            class="text-sm text-neutral-950 dark:text-neutral-dark-950"
-                            >अगली बार के लिए मेरा नाम, ईमेल और वेबसाइट इस
-                            ब्राउज़र में सुरक्षित रखें।</label
-                        >
-                    </div>
+                    <textarea
+                        placeholder={t.contact.form.placeholders.message}
+                        class="textarea-default"></textarea>
+
                     <button
                         type="submit"
                         class="group btn bg-primary-light-950 dark:bg-primary-dark-950 rounded-full px-8 py-4 text-xl text-neutral-950 dark:text-neutral-dark-950 flex gap-2 items-center"
                     >
-                        <span>संदेश भेजें</span>
+                        <span>{t.contact.form.labels.submit}</span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="18"
@@ -108,27 +93,22 @@ changeLanguage("hi");
                             viewBox="0 0 24 24"
                             class="fill-neutral-950 dark:fill-neutral-dark-950 group-hover:translate-x-1 transition-all duration-300"
                         >
-                            <g clip-path="url(#clip0_253_4238)">
-                                <path
-                                    d="M23.6164 11.0663L14.9491 2.39884C14.7017 2.15143 14.372 2.01562 14.0204 2.01562C13.6684 2.01562 13.3388 2.15162 13.0914 2.39884L12.3045 3.18596C12.0573 3.43298 11.9211 3.76293 11.9211 4.11473C11.9211 4.46634 12.0573 4.80741 12.3045 5.05443L17.3608 10.1219H1.29657C0.572288 10.1219 0 10.6889 0 11.4134V12.5262C0 13.2507 0.572288 13.8748 1.29657 13.8748H17.4182L12.3047 18.9706C12.0575 19.218 11.9213 19.539 11.9213 19.8908C11.9213 20.2422 12.0575 20.5679 12.3047 20.8151L13.0916 21.5997C13.339 21.8471 13.6686 21.9819 14.0206 21.9819C14.3722 21.9819 14.7019 21.8453 14.9493 21.5979L23.6166 12.9307C23.8646 12.6825 24.001 12.3512 24 11.999C24.0008 11.6456 23.8646 11.3141 23.6164 11.0663Z"
-                                ></path>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_253_4238">
-                                    <rect width="24" height="24"></rect>
-                                </clipPath>
-                            </defs>
+                            <path
+                                d="M23.6164 11.0663L14.9491 2.39884C14.7017 2.15143 14.372 2.01562 14.0204 2.01562C13.6684 2.01562 13.3388 2.15162 13.0914 2.39884L12.3045 3.18596C12.0573 3.43298 11.9211 3.76293 11.9211 4.11473C11.9211 4.46634 12.0573 4.80741 12.3045 5.05443L17.3608 10.1219H1.29657C0.572288 10.1219 0 10.6889 0 11.4134V12.5262C0 13.2507 0.572288 13.8748 1.29657 13.8748H17.4182L12.3047 18.9706C12.0575 19.218 11.9213 19.539 11.9213 19.8908C11.9213 20.2422 12.0575 20.5679 12.3047 20.8151L13.0916 21.5997C13.339 21.8471 13.6686 21.9819 14.0206 21.9819C14.3722 21.9819 14.7019 21.8453 14.9493 21.5979L23.6166 12.9307C23.8646 12.6825 24.001 12.3512 24 11.999C24.0008 11.6456 23.8646 11.3141 23.6164 11.0663Z"
+                            ></path>
                         </svg>
                     </button>
                 </form>
             </div>
         </div>
     </section>
+
     <section class="pb-24">
         <div class="container mx-auto px-4">
             <div
                 class="flex flex-col gap-8 md:flex-row justify-between items-center mx-auto lg:max-w-[950px]"
             >
+                <!-- Email -->
                 <div
                     class="flex flex-col item-center justify-center text-center"
                 >
@@ -151,15 +131,18 @@ changeLanguage("hi");
                         <h6
                             class="text-2xl font-bold text-neutral-950 dark:text-neutral-dark-950 mb-2"
                         >
-                            ईमेल भेजें
+                            {t.site.email.name}
                         </h6>
-                        <p
+                        <a
+                            href={t.site.email.value}
                             class="text-base font-medium text-neutral-700 dark:text-neutral-dark-700 mb-0"
                         >
-                            Care@developbharat.com
-                        </p>
+                            {t.site.email.label}
+                        </a>
                     </div>
                 </div>
+
+                <!-- Phone -->
                 <div
                     class="flex flex-col item-center justify-center text-center"
                 >
@@ -188,15 +171,18 @@ changeLanguage("hi");
                         <h6
                             class="text-2xl font-bold text-neutral-950 dark:text-neutral-dark-950 mb-2"
                         >
-                            फ़ोन नंबर
+                            {t.site.mobile.name}
                         </h6>
-                        <p
+                        <a
+                            href={t.site.mobile.value}
                             class="text-base font-medium text-neutral-700 dark:text-neutral-dark-700 mb-0"
                         >
-                            7027028480
-                        </p>
+                            {t.site.mobile.label}
+                        </a>
                     </div>
                 </div>
+
+                <!-- Address -->
                 <div
                     class="flex flex-col item-center justify-center text-center"
                 >
@@ -219,19 +205,19 @@ changeLanguage("hi");
                         <h6
                             class="text-2xl font-bold text-neutral-950 dark:text-neutral-dark-950 mb-2"
                         >
-                            हमारा पता
+                            {t.site.address.name}
                         </h6>
                         <p
                             class="text-base font-medium text-neutral-700 dark:text-neutral-dark-700 mb-0"
                         >
-                            Develop Bharat,Mokhra Khas(101 Rohtak)<br />Haryana
-                            India
+                            {t.site.address.label}
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <section class="relative py-10 lg:pb-24">
         <div class="container mx-auto px-4">
             <div
@@ -239,24 +225,20 @@ changeLanguage("hi");
             >
                 <h2
                     class="text-5xl leading-tight md:text-6xl lg:text-6xl font-bold text-neutral-950 dark:text-neutral-dark-950 mb-0"
-                >
-                    <span class="font-light">Let's</span> explore, share, and inspire
-                    <span class="font-light">together!</span>
-                </h2>
+                    set:html={t.contact.cta.title}
+                />
                 <div class="flex flex-col gap-8">
                     <p
                         class="text-lg font-medium text-neutral-700 dark:text-neutral-dark-300"
                     >
-                        Ready to dive into the blend of tech, fashion, and
-                        lifestyle? Join our vibrant community and be part of the
-                        conversation.
+                        {t.contact.cta.description}
                     </p>
                     <div class="flex flex-col md:flex-row gap-4">
                         <a
                             href="page-login.html"
                             class="group btn bg-primary-light-950 dark:bg-primary-dark-950 rounded-full px-8 py-4 text-xl text-neutral-950 dark:text-neutral-dark-950 flex gap-2 items-center"
                         >
-                            <span>Get Started</span>
+                            <span>{t.contact.cta.primary_button}</span>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="18"
@@ -264,23 +246,17 @@ changeLanguage("hi");
                                 viewBox="0 0 24 24"
                                 class="fill-neutral-950 dark:fill-neutral-dark-950 group-hover:translate-x-1 transition-all duration-300"
                             >
-                                <g clip-path="url(#clip0_253_4238)">
-                                    <path
-                                        d="M23.6164 11.0663L14.9491 2.39884C14.7017 2.15143 14.372 2.01562 14.0204 2.01562C13.6684 2.01562 13.3388 2.15162 13.0914 2.39884L12.3045 3.18596C12.0573 3.43298 11.9211 3.76293 11.9211 4.11473C11.9211 4.46634 12.0573 4.80741 12.3045 5.05443L17.3608 10.1219H1.29657C0.572288 10.1219 0 10.6889 0 11.4134V12.5262C0 13.2507 0.572288 13.8748 1.29657 13.8748H17.4182L12.3047 18.9706C12.0575 19.218 11.9213 19.539 11.9213 19.8908C11.9213 20.2422 12.0575 20.5679 12.3047 20.8151L13.0916 21.5997C13.339 21.8471 13.6686 21.9819 14.0206 21.9819C14.3722 21.9819 14.7019 21.8453 14.9493 21.5979L23.6166 12.9307C23.8646 12.6825 24.001 12.3512 24 11.999C24.0008 11.6456 23.8646 11.3141 23.6164 11.0663Z"
-                                    ></path>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_253_4238">
-                                        <rect width="24" height="24"></rect>
-                                    </clipPath>
-                                </defs>
+                                <path
+                                    d="M23.6164 11.0663L14.9491 2.39884C14.7017 2.15143 14.372 2.01562 14.0204 2.01562C13.6684 2.01562 13.3388 2.15162 13.0914 2.39884L12.3045 3.18596C12.0573 3.43298 11.9211 3.76293 11.9211 4.11473C11.9211 4.46634 12.0573 4.80741 12.3045 5.05443L17.3608 10.1219H1.29657C0.572288 10.1219 0 10.6889 0 11.4134V12.5262C0 13.2507 0.572288 13.8748 1.29657 13.8748H17.4182L12.3047 18.9706C12.0575 19.218 11.9213 19.539 11.9213 19.8908C11.9213 20.2422 12.0575 20.5679 12.3047 20.8151L13.0916 21.5997C13.339 21.8471 13.6686 21.9819 14.0206 21.9819C14.3722 21.9819 14.7019 21.8453 14.9493 21.5979L23.6166 12.9307C23.8646 12.6825 24.001 12.3512 24 11.999C24.0008 11.6456 23.8646 11.3141 23.6164 11.0663Z"
+                                ></path>
                             </svg>
                         </a>
                         <a
                             href="page-contact.html"
                             class="btn border border-neutral-950 dark:bg-neutral-dark-0 rounded-full px-8 py-4 text-xl text-neutral-950 dark:text-neutral-dark-950 items-center"
-                            >Contact Us</a
                         >
+                            {t.contact.cta.secondary_button}
+                        </a>
                     </div>
                 </div>
                 <img

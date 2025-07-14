@@ -54,6 +54,34 @@
       }
     }
   },
+  "contact": {
+    "title": "स्वागत है आपका, श्रेष्ठ भारत के सपने मे।",
+    "description": "विकसित भारत के माध्यम से हमें गर्व है — सबसे श्रेष्ठ बनने की दिशा में, जहाँ AI कंटेंट राइटर से लेकर बिज़नेस ओनर तक, सभी को एक मंच पर जोड़ने वाले टूल्स हम बना रहे हैं। हम आपके उत्तम अनुभव के लिए सतत प्रयासरत हैं। आपका सहयोग, देश और मानवता के लिए एक सुंदर उपहार है। ",
+    "breadcrumb": {
+      "home": "Home",
+      "contact": "Contact Us"
+    },
+    "heading": "बात करें, <span class=\"font-light\">सुझाव दें, बदलाव लाएं</span>",
+    "subheading": "कॉल करें या ईमेल भेजें — सवाल पूछिए, सुझाव दीजिए… क्योंकि बात करने से ही तो हर समस्या का हल निकलता है।",
+    "form": {
+      "title": "सीधे हमसे जुड़ें",
+      "placeholders": {
+        "name": "नाम",
+        "email": "ईमेल",
+        "subject": "विषय",
+        "message": "संदेश"
+      },
+      "labels": {
+        "submit": "संदेश भेजें"
+      }
+    },
+    "cta": {
+      "title": "<span class=\"font-light\">Let's</span> explore, share, and inspire <span class=\"font-light\">together!</span>",
+      "description": "Ready to dive into the blend of tech, fashion, and lifestyle? Join our vibrant community and be part of the conversation.",
+      "primary_button": "Get Started",
+      "secondary_button": "Contact Us"
+    }
+  },
   "articles": {
     "index": {
       "title": "स्वागत है आपका, श्रेष्ठ भारत के सपने मे।",
@@ -63,6 +91,14 @@
         "title": "News & <span class='font-light'>Articles</span>",
         "subtitle": "Tech, fashion, lifestyle – your daily dose of innovation, style, and living. Explore the intersection in a byte-sized journey."
       }
+    },
+    "category": {
+      "title": "स्वागत है आपका, श्रेष्ठ भारत के सपने मे।",
+      "description": "विकसित भारत के माध्यम से हमें गर्व है — सबसे श्रेष्ठ बनने की दिशा में, जहाँ AI कंटेंट राइटर से लेकर बिज़नेस ओनर तक, सभी को एक मंच पर जोड़ने वाले टूल्स हम बना रहे हैं। हम आपके उत्तम अनुभव के लिए सतत प्रयासरत हैं। आपका सहयोग, देश और मानवता के लिए एक सुंदर उपहार है। "
+    },
+    "article": {
+      "title": "स्वागत है आपका, श्रेष्ठ भारत के सपने मे।",
+      "description": "विकसित भारत के माध्यम से हमें गर्व है — सबसे श्रेष्ठ बनने की दिशा में, जहाँ AI कंटेंट राइटर से लेकर बिज़नेस ओनर तक, सभी को एक मंच पर जोड़ने वाले टूल्स हम बना रहे हैं। हम आपके उत्तम अनुभव के लिए सतत प्रयासरत हैं। आपका सहयोग, देश और मानवता के लिए एक सुंदर उपहार है। "
     }
   },
   "accounts": {
