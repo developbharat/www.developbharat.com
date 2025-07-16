@@ -1,21 +1,22 @@
 ---
-import { t, translatePath } from "@utils/i18n";
+import iAdvertisement from "@assets/illustrations/articles/advertisement.png";
+import iFallbackArticle from "@assets/illustrations/articles/fallback.png";
+import Logo from "@assets/meta/logo.svg";
 import FormattedDate from "@components/FormattedDate.astro";
+import MainWebsite from "@layouts/MainWebsite.astro";
 import { parseArticleId } from "@utils/articles";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import { changeLanguage } from "i18next";
-import MainWebsite from "@layouts/MainWebsite.astro";
-import iFallbackArticle from "@assets/illustrations/articles/fallback.png";
-import iAdvertisement from "@assets/illustrations/articles/advertisement.png";
-import Logo from "@assets/meta/logo.svg";
+import { useTranslatePath, useT } from "@utils/i18n";
+import { getLocale } from "astro-i18n-aut";
 
-changeLanguage("hi");
+const locale = getLocale(Astro.url);
+const t = await useT(locale);
+const translatePath = useTranslatePath(locale);
 
 const all_articles = (await getCollection("articles")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-
 const categories = all_articles
     .map((article) => ({
         title: parseArticleId(article.id).categoryName,
@@ -25,7 +26,6 @@ const categories = all_articles
         (article, index, self) =>
             self.map((a) => a.value).indexOf(article.value) === index,
     );
-
 const latest_articles = all_articles.slice(0, 2);
 const articles = all_articles.slice(2);
 ---

@@ -1,22 +1,23 @@
 ---
-import { Image } from "astro:assets";
-import { changeLanguage } from "i18next";
-import MainWebsite from "@layouts/MainWebsite.astro";
-import { translatePath, t } from "@utils/i18n";
-
-import iHero from "@assets/illustrations/about/hero.png";
-import i1 from "@assets/illustrations/about/1.png";
 import iAvatar1 from "@assets/avatar/avatar-03.png";
 import iAvatar2 from "@assets/avatar/avatar-04.png";
 import iAvatar3 from "@assets/avatar/avatar-05.png";
+import i1 from "@assets/illustrations/about/1.png";
+import iHero from "@assets/illustrations/about/hero.png";
 import iGallery1 from "@assets/illustrations/gallery/gallery-01.png";
 import iGallery2 from "@assets/illustrations/gallery/gallery-02.png";
 import iGallery3 from "@assets/illustrations/gallery/gallery-03.png";
 import iGallery4 from "@assets/illustrations/gallery/gallery-04.png";
 import iGallery5 from "@assets/illustrations/gallery/gallery-05.png";
 import iGallery6 from "@assets/illustrations/gallery/gallery-06.png";
+import MainWebsite from "@layouts/MainWebsite.astro";
+import { Image } from "astro:assets";
+import { useTranslatePath, useT } from "@utils/i18n";
+import { getLocale } from "astro-i18n-aut";
 
-changeLanguage("hi");
+const locale = getLocale(Astro.url);
+const t = await useT(locale);
+const translatePath = useTranslatePath(locale);
 ---
 
 <MainWebsite title={t.site.title} description={t.site.description}>

@@ -3,6 +3,12 @@ import "@fontsource-variable/roboto-slab";
 import FallbackImage from "@src/assets/meta/open-graph.png";
 import "@src/css/main.css";
 import type { ImageMetadata } from "astro";
+import { getLocale } from "astro-i18n-aut";
+import { useTranslatePath, useT } from "@utils/i18n";
+import logo from "@assets/meta/logo.svg";
+import appleTouchIcon from "@assets/meta/apple-touch-icon.png";
+import webmanifest from "@assets/meta/developbharat.webmanifest";
+import favIcon16x16 from "@assets/meta/favicon-16x16.png";
 
 interface Props {
     title: string;
@@ -13,6 +19,10 @@ interface Props {
 const { title, description, image = FallbackImage } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image.src, Astro.url);
+
+const locale = getLocale(Astro.url);
+const t = await useT(locale);
+const translatePath = useTranslatePath(locale);
 ---
 
 <!-- Charset and Viewport -->
@@ -26,14 +36,14 @@ const ogImage = new URL(image.src, Astro.url);
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
 
 <!-- Favicon and Icons -->
-<link rel="icon" href={"/meta/logo.svg"} />
-<link rel="shortcut icon" href={"/meta/favicon-16x16.png"} />
-<link rel="apple-touch-icon" href={"/meta/apple-touch-icon.png"} />
-<link rel="manifest" href={"/meta/developbharat.webmanifest"} />
+<link rel="icon" href={logo.src} />
+<link rel="shortcut icon" href={favIcon16x16.src} />
+<link rel="apple-touch-icon" href={appleTouchIcon.src} />
+<link rel="manifest" href={webmanifest} />
 
 <!-- Canonical URL & Sitemap -->
 <link rel="canonical" href={canonicalURL} />
-<link rel="sitemap" href={"/sitemap-index.xml"} />
+<link rel="sitemap" href={translatePath("/sitemap-index.xml")} />
 <link
     rel="alternate"
     type="application/rss+xml"
@@ -74,7 +84,7 @@ const ogImage = new URL(image.src, Astro.url);
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:creator" content="@shadcn" />
+<meta name="twitter:creator" content="@BharatDevelop" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />

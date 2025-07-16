@@ -1,9 +1,11 @@
 ---
-import { changeLanguage } from "i18next";
 import MainWebsite from "@layouts/MainWebsite.astro";
-import { t, translatePath } from "@utils/i18n";
+import { useTranslatePath, useT } from "@utils/i18n";
+import { getLocale } from "astro-i18n-aut";
 
-changeLanguage("hi");
+const locale = getLocale(Astro.url);
+const t = await useT(locale);
+const translatePath = useTranslatePath(locale);
 ---
 
 <MainWebsite title={t.contact.title} description={t.contact.description}>

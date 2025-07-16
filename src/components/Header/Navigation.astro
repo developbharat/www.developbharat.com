@@ -1,5 +1,8 @@
 ---
-import { t, translatePath } from "@utils/i18n";
+import { useTranslatePath, useT } from "@utils/i18n";
+
+const t = await useT(Astro.currentLocale!!);
+const translatePath = useTranslatePath(Astro.currentLocale!!);
 ---
 
 <ul class="xl:flex hidden">

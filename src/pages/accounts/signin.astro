@@ -1,14 +1,17 @@
 ---
 import { Image } from "astro:assets";
-import { changeLanguage } from "i18next";
 import MainWebsite from "@layouts/MainWebsite.astro";
-import { t, translatePath } from "@utils/i18n";
 import iSignup1 from "@assets/illustrations/accounts/signin1.png";
 import iSignup2 from "@assets/illustrations/accounts/signin2.png";
 import iSignup3 from "@assets/illustrations/accounts/signin3.png";
 import iSignup4 from "@assets/illustrations/accounts/signin4.png";
 import iSignup5 from "@assets/illustrations/accounts/signin5.png";
-changeLanguage("hi");
+import { useTranslatePath, useT } from "@utils/i18n";
+import { getLocale } from "astro-i18n-aut";
+
+const locale = getLocale(Astro.url);
+const t = await useT(locale);
+const translatePath = useTranslatePath(locale);
 ---
 
 <MainWebsite

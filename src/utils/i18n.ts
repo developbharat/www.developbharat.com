@@ -1,14 +1,58 @@
+import { createInstance } from "i18next";
+import Backend from "i18next-fs-backend";
+import type TranslationKeys from "../../public/locales/hi/translation.json";
 import { joinUrl } from "./url";
-import { localizePath } from "astro-i18next";
-import i18next from "i18next";
-import TranslationKeys from "../../public/locales/hi/translation.json";
+import { join } from "path";
+import { getLocale, defaultLocale, locales } from "astro-i18n-aut";
 
-export const data = i18next.getDataByLanguage(i18next.language) ?? null;
+// Cache i18n instances by locale
+const instances = new Map<string, any>();
 
-if (!data)
-  throw new Error(`Failed to load translation data for ${i18next.language}`);
-export const t = data.translation as unknown as typeof TranslationKeys;
+// Initialize i18next instance for a specific locale
+async function initI18n(locale: string = defaultLocale) {
+  const instance = createInstance();
 
-export function translatePath(path: string) {
-  return joinUrl(import.meta.env.BASE_URL, localizePath(path));
+  await instance.use(Backend).init({
+    lng: locale,
+    fallbackLng: defaultLocale,
+    supportedLngs: Object.keys(locales),
+    ns: ["translation"],
+    defaultNS: "translation",
+    backend: {
+      loadPath: "./public/locales/{{lng}}/{{ns}}.json",
+    },
+    interpolation: { escapeValue: false },
+  });
+
+  return instance;
+}
+
+// Get translations data for current language
+async function getTranslations(locale: string = defaultLocale) {
+  if (!instances.has(locale)) {
+    instances.set(locale, await initI18n(locale));
+  }
+
+  const instance = instances.get(locale);
+  return {
+    data: instance.store.data[locale] ?? null,
+    instance,
+  };
+}
+
+// Typed translation function
+export async function useT(locale: string): Promise<typeof TranslationKeys> {
+  const { data } = await getTranslations(locale);
+  if (!data) {
+    throw new Error(`Failed to load translations for ${locale}`);
+  }
+  return data.translation;
+}
+
+// Path translation utility
+export function useTranslatePath(locale: string = defaultLocale) {
+  return function translatePath(path: string) {
+    const localizedPath = join(locale === defaultLocale ? "/" : locale, path);
+    return joinUrl(import.meta.env.BASE_URL, localizedPath);
+  };
 }

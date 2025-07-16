@@ -1,6 +1,9 @@
 ---
 import Logo from "@assets/meta/logo.svg";
-import { t } from "@utils/i18n";
+import { useT, useTranslatePath } from "@utils/i18n";
+
+const t = await useT(Astro.currentLocale!!);
+const translatePath = useTranslatePath(Astro.currentLocale!!);
 ---
 
 <!-- Footer -->

@@ -1,13 +1,12 @@
 import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
-import { SITE_TITLE, SITE_DESCRIPTION } from "@utils/consts";
 import { parseArticleId } from "@utils/articles";
+import { getCollection } from "astro:content";
 
 export async function GET(context) {
   const posts = await getCollection("articles");
   return rss({
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    title: "Develop Bharat",
+    description: "Welcome to the RSS feed offerred by Develop Bharat",
     site: context.site,
     items: posts.map((post) => ({
       ...post.data,

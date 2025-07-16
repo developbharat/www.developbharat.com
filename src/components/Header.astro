@@ -1,11 +1,16 @@
 ---
-import { translatePath } from "@utils/i18n";
 import Navigation from "@components/Header/Navigation.astro";
 import MobileMenu from "@components/Header/MobileMenu.astro";
 import Logo from "@assets/meta/logo.svg";
 import IconThemeLight from "@assets/icons/icon-dark-light.svg";
 import IconThemeDark from "@assets/icons/icon-dark-light-white.svg";
-import { LanguageSelector } from "astro-i18next/components";
+import { useTranslatePath, useT } from "@utils/i18n";
+import { getLocale } from "astro-i18n-aut";
+// import { LanguageSelector } from "astro-i18next/components";
+
+const locale = getLocale(Astro.url);
+const t = await useT(locale);
+const translatePath = useTranslatePath(locale);
 ---
 
 <header
@@ -24,10 +29,10 @@ import { LanguageSelector } from "astro-i18next/components";
         <div
             class="flex justify-end align-middle content-center items-center relative gap-4"
         >
-            <LanguageSelector
+            <!-- <LanguageSelector
                 showFlag={true}
                 class="relative cursor-pointer z-20"
-            />
+            /> -->
 
             <div class="dark-light cursor-pointer flex relative z-20">
                 <IconThemeLight class="dark:hidden" />

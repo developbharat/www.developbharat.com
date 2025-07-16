@@ -1,14 +1,6 @@
 {
   "name": "www-developbharat-com",
-  "type": "module",
   "version": "0.0.1",
-  "scripts": {
-    "prebuild": "astro-i18next generate",
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/rss": "^4.0.12",
@@ -16,8 +8,17 @@
     "@fontsource-variable/roboto-slab": "^5.2.6",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.11.0",
-    "astro-i18next": "^1.0.0-beta.21",
+    "astro-i18n-aut": "^0.7.3",
+    "i18next": "^25.3.2",
+    "i18next-fs-backend": "^2.6.0",
     "sharp": "^0.34.2",
     "tailwindcss": "^4.1.11"
-  }
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "type": "module"
 }
