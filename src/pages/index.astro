@@ -2,6 +2,7 @@
 import { changeLanguage } from "i18next";
 import MainWebsite from "@layouts/MainWebsite.astro";
 import { t, translatePath } from "@utils/i18n";
+import HeroImage from "@assets/illustrations/home/hero.svg";
 changeLanguage("hi");
 ---
 
@@ -64,13 +65,18 @@ changeLanguage("hi");
             <!-- Right Image - Hidden on mobile -->
             <div class="hidden lg:block lg:w-1/2 relative h-full">
                 <div class="relative">
-                    <img
+                    <HeroImage
+                        width="526"
+                        height="526"
+                        class="w-full h-auto animate-float"
+                    />
+                    <!-- <img
                         src="/assets/images/hero-1.png"
                         alt="Team illustration"
                         class="w-full h-auto animate-float"
                         width="526"
                         height="526"
-                    />
+                    /> -->
                 </div>
             </div>
         </div>
