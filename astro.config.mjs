@@ -5,6 +5,8 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { i18n } from "astro-i18n-aut/integration";
 
+import alpinejs from "@astrojs/alpinejs";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://developbharat.github.io",
@@ -13,16 +15,6 @@ export default defineConfig({
     format: "file",
   },
   output: "static",
-  // base: "/www.developbharat.com/",
-  // i18n: {
-  //   locales: ["hi", "en"],
-  //   defaultLocale: "hi",
-  //   routing: {
-  //     prefixDefaultLocale: false,
-  //     redirectToDefaultLocale: true,
-  //     fallbackType: "redirect",
-  //   },
-  // },
   integrations: [
     mdx(),
     sitemap(),
@@ -35,6 +27,7 @@ export default defineConfig({
       redirectDefaultLocale: true,
       exclude: ["pages/rss.xml.js"],
     }),
+    alpinejs({ entrypoint: "/src/plugins/alpine" }),
   ],
   vite: {
     plugins: [tailwindcss()],

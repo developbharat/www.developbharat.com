@@ -56,3 +56,14 @@ export function useTranslatePath(locale: string = defaultLocale) {
     return joinUrl(import.meta.env.BASE_URL, localizedPath);
   };
 }
+
+export function localeToLangugeName(locale: string): string {
+  switch (locale) {
+    case "en":
+      return "English";
+    case "hi":
+      return "हिन्दी";
+    default:
+      return locale;
+  }
+}

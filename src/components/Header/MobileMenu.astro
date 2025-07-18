@@ -1,3 +1,13 @@
+---
+import Logo from "@assets/meta/logo.svg";
+import { useTranslatePath, useT } from "@utils/i18n";
+import { getLocale } from "astro-i18n-aut";
+
+const locale = getLocale(Astro.url);
+const t = await useT(locale);
+const translatePath = useTranslatePath(locale);
+---
+
 <!--Mobile Menu-->
 <div
     class="navbar-menu fixed top-0 left-0 z-50 w-full h-full bg-neutral-950 bg-opacity-30 hidden"
@@ -8,17 +18,8 @@
         <nav class="relative p-6 h-full overflow-y-auto">
             <div class="flex flex-col h-full">
                 <h1 class="pt-2 pb-6">
-                    <a href="index.html">
-                        <img
-                            src="assets/imgs/template/logo.svg"
-                            alt="logo"
-                            class="flex-shrink-0 relative dark:hidden"
-                        />
-                        <img
-                            src="assets/imgs/template/logo-white.svg"
-                            alt="logo"
-                            class="flex-shrink-0 relative hidden dark:inline-block"
-                        />
+                    <a href={translatePath("/")}>
+                        <Logo class="flex-shrink-0 relative inline-block h-9" />
                     </a>
                 </h1>
                 <ul
