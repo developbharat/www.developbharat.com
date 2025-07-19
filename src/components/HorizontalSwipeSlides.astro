@@ -1,0 +1,36 @@
+---
+import "swiper/css";
+---
+
+<div class="swiper progress-slide-carousel swiper-container relative h-full">
+    <div class="swiper-wrapper">
+        <slot />
+    </div>
+</div>
+
+<style>
+    .swiper-wrapper {
+        width: 100%;
+        height: 100% !important;
+        padding-bottom: 64px !important;
+        -webkit-transition-timing-function: linear !important;
+        transition-timing-function: linear !important;
+        position: relative;
+    }
+</style>
+
+<script>
+    // import "swiper/css";
+    import Swiper from "swiper";
+    import { register } from "swiper/element/bundle";
+    register();
+
+    var swiper = new Swiper(".progress-slide-carousel", {
+        loop: true,
+        fraction: true,
+        autoplay: {
+            delay: 1200,
+            disableOnInteraction: false,
+        },
+    });
+</script>

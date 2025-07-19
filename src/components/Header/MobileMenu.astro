@@ -10,7 +10,7 @@ const translatePath = useTranslatePath(locale);
 
 <!--Mobile Menu-->
 <div
-    class="navbar-menu fixed top-0 left-0 z-50 w-full h-full bg-neutral-950 bg-opacity-30 hidden"
+    class="navbar-menu fixed top-0 left-0 z-50 w-full h-full bg-neutral-950 bg-opacity-30"
 >
     <div
         class="fixed top-0 left-0 bottom-0 w-5/6 max-w-xs bg-neutral-0 dark:bg-neutral-dark-0"
@@ -25,155 +25,50 @@ const translatePath = useTranslatePath(locale);
                 <ul
                     class="py-6 mb-6 border-y border-neutral-300 dark:border-neutral-dark-300"
                 >
-                    <li class="has-children">
-                        <a class="menu-mobile-item" href="#">Home</a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a
-                                    class="menu-mobile-sub-item"
-                                    href="index.html">Home page 01</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    class="menu-mobile-sub-item"
-                                    href="index-2.html">Home page 02</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    class="menu-mobile-sub-item"
-                                    href="index-3.html">Home page 03</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="has-children">
-                        <a class="menu-mobile-item" href="#">Blog</a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a
-                                    href="category.html"
-                                    class="menu-mobile-sub-item">Category 01</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="category-2.html"
-                                    class="menu-mobile-sub-item">Category 02</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="category-3.html"
-                                    class="menu-mobile-sub-item">Category 03</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="category-4.html"
-                                    class="menu-mobile-sub-item">Category 04</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="single.html"
-                                    class="menu-mobile-sub-item">Single 01</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="single-2.html"
-                                    class="menu-mobile-sub-item">Single 02</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="has-children">
-                        <a class="menu-mobile-item" href="#">Pages</a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a
-                                    href="page-about.html"
-                                    class="menu-mobile-sub-item">About me</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="page-author.html"
-                                    class="menu-mobile-sub-item">Author</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="page-search.html"
-                                    class="menu-mobile-sub-item"
-                                    >Search Results</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="page-contact.html"
-                                    class="menu-mobile-sub-item">Contact</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="page-login.html"
-                                    class="menu-mobile-sub-item">Login</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="page-register.html"
-                                    class="menu-mobile-sub-item">Register</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="page-forgot-password.html"
-                                    class="menu-mobile-sub-item"
-                                    >Forgot Password</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="page-404.html"
-                                    class="menu-mobile-sub-item">Error 404</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
                     <li>
-                        <a class="menu-mobile-item" href="page-about.html"
-                            >About</a
+                        <a class="menu-mobile-item" href={translatePath("/")}
+                            >Home</a
                         >
                     </li>
                     <li>
-                        <a class="menu-mobile-item" href="page-contact.html"
-                            >Contact</a
+                        <a
+                            class="menu-mobile-item"
+                            href={translatePath("/articles")}>Blog</a
+                        >
+                    </li>
+
+                    <li>
+                        <a
+                            href={translatePath("/products/hindmail")}
+                            class="menu-mobile-item">Hind Mail</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href={translatePath("/products/uistudio")}
+                            class="menu-mobile-item">UI Studio</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href={translatePath("/products/torrenthub")}
+                            class="menu-mobile-item">TorrentHub</a
+                        >
+                    </li>
+
+                    <li>
+                        <a
+                            href={translatePath("/about")}
+                            class="menu-mobile-item">About Us</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href={translatePath("/contact")}
+                            class="menu-mobile-item">Contact</a
                         >
                     </li>
                 </ul>
-                <div class="flex flex-wrap flex-col mt-4">
-                    <h4
-                        class="text-lg text-neutral-950 dark:text-neutral-dark-950 font-bold mb-4"
-                    >
-                        Stay Connectted
-                    </h4>
-                    <p
-                        class="text-sm text-neutral-700 font-medium mb-4 leading-5"
-                    >
-                        Imagine waking up to a dose of positivity, lifestyle
-                        hacks, and inspiration tailored just for you. That's
-                        what you get when you subscribe!
-                    </p>
-                    <a
-                        href="page-login.html"
-                        class="w-full p-4 text-neutral-950 bg-primary-light-950 rounded-md font-bold text-sm"
-                        >Subscribe Now</a
-                    >
-                </div>
             </div>
         </nav>
         <a class="navbar-close absolute top-5 p-4 right-3" href="#">

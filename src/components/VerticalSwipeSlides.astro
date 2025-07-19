@@ -1,0 +1,50 @@
+---
+import "swiper/css";
+---
+
+<div class="swiper vertical-slide-carousel swiper-container relative h-full">
+    <div class="swiper-wrapper h-full">
+        <slot />
+    </div>
+    <div class="swiper-pagination !right-10 !left-full !top-1/3 !translate-y-8">
+    </div>
+</div>
+
+<style>
+    .swiper-wrapper {
+        width: 100%;
+        height: 100% !important;
+        padding-bottom: 64px !important;
+        -webkit-transition-timing-function: linear !important;
+        transition-timing-function: linear !important;
+        position: relative;
+    }
+    .swiper-pagination-bullet {
+        background: #4f46e5;
+    }
+    .swiper-pagination-bullet-active {
+        background: #4f46e5 !important;
+    }
+</style>
+
+<script>
+    // import "swiper/css";
+    import Swiper from "swiper";
+    import { register } from "swiper/element/bundle";
+    register();
+
+    new Swiper(".vertical-slide-carousel", {
+        loop: false,
+        direction: "vertical",
+        mousewheelControl: true,
+        mousewheel: {
+            releaseOnEdges: true,
+        },
+        spaceBetween: 30,
+        grabCursor: true,
+        pagination: {
+            el: ".vertical-slide-carousel .swiper-pagination",
+            clickable: true,
+        },
+    });
+</script>

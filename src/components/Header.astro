@@ -14,7 +14,7 @@ const translatePath = useTranslatePath(locale);
 ---
 
 <header
-    class="main-header mx-auto w-full flex justify-center py-2 z-50 relative dark:bg-primary-dark-0"
+    class="main-header mx-auto w-full flex justify-center py-2 z-50 relative dark:bg-primary-dark-0 border-b-2 border-b-gray-400"
 >
     <div
         class="container mx-auto flex justify-between items-center relative px-4"
@@ -42,6 +42,15 @@ const translatePath = useTranslatePath(locale);
                     href={translatePath("/accounts/signin")}
                 >
                     Sign in
+                </a>
+            </div>
+            <div class="py-4 hover-up xl:flex hidden relative z-20">
+                <a
+                    role="button"
+                    class="btn-primary"
+                    href={translatePath("/accounts/signup")}
+                >
+                    Create new account
                 </a>
             </div>
             <button class="navbar-burger self-center xl:hidden">

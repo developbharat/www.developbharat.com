@@ -21,7 +21,7 @@ export default defineConfig({
     i18n({
       locales: {
         hi: "hi",
-        en: "en",
+        // en: "en",
       },
       defaultLocale: "hi",
       redirectDefaultLocale: true,

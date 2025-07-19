@@ -10,6 +10,8 @@ import IconArrow2 from "@icons/home/icon-arrow-2.svg";
 import MainWebsite from "@layouts/MainWebsite.astro";
 import { useTranslatePath, useT } from "@utils/i18n";
 import { getLocale } from "astro-i18n-aut";
+// import SwipeSlides from "@components/VerticalSwipeSlides.astro";
+import HorizontalSwipeSlides from "@components/HorizontalSwipeSlides.astro";
 
 const locale = getLocale(Astro.url);
 const t = await useT(locale);
@@ -91,7 +93,7 @@ const translatePath = useTranslatePath(locale);
         </span>
         <div class="text-center mb-[88px]">
             <h2
-                class="font-bold mx-auto text-[35px] leading-[44px] md:text-[46px] md:leading-[52px] lg:text-heading-1 text-gray-900 mb-5 md:mb-[30px] max-w-[725px]"
+                class="heading-2 mx-auto text-neutral-950 dark:text-neutral-dark-950"
             >
                 {t.home.how_it_works.heading}
             </h2>
@@ -152,4 +154,71 @@ const translatePath = useTranslatePath(locale);
             </div>
         </div>
     </section>
+
+    <!-- <section class="h-screen">
+        <HorizontalSwipeSlides>
+            <div class="swiper-slide">
+                <div
+                    class="bg-indigo-50 h-full flex justify-center items-center"
+                >
+                    <span class="text-3xl font-semibold text-indigo-600"
+                        >Slide 1
+                    </span>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div
+                    class="bg-indigo-50 h-full flex justify-center items-center"
+                >
+                    <span class="text-3xl font-semibold text-indigo-600"
+                        >Slide 2
+                    </span>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div
+                    class="bg-indigo-50 h-full flex justify-center items-center"
+                >
+                    <span class="text-3xl font-semibold text-indigo-600"
+                        >Slide 3
+                    </span>
+                </div>
+            </div>
+        </HorizontalSwipeSlides>
+    </section> -->
+
+    <!-- Section: Slides -->
+    <!-- <section class="h-screen bg-amber-700">
+        <SwipeSlides>
+            <div class="swiper-slide">
+                <div
+                    class="bg-indigo-50 h-full flex justify-center items-center"
+                >
+                    <span class="text-3xl font-semibold text-indigo-600"
+                        >Slide 1
+                    </span>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div
+                    class="bg-indigo-50 h-full flex justify-center items-center"
+                >
+                    <span class="text-3xl font-semibold text-indigo-600"
+                        >Slide 2
+                    </span>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div
+                    class="bg-indigo-50 h-full flex justify-center items-center"
+                >
+                    <span class="text-3xl font-semibold text-indigo-600"
+                        >Slide 3
+                    </span>
+                </div>
+            </div>
+        </SwipeSlides>
+    </section> -->
 </MainWebsite>

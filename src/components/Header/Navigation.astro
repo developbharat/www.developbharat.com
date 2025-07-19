@@ -5,7 +5,7 @@ const t = await useT(Astro.currentLocale!!);
 const translatePath = useTranslatePath(Astro.currentLocale!!);
 ---
 
-<ul class="xl:flex">
+<ul class="xl:flex hidden">
     <li class="relative">
         <a class="menu-item" href={translatePath("/")}>Home</a>
     </li>

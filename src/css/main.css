@@ -276,7 +276,7 @@ a:not([role="button"]):hover:after {
         margin-top: 16px;
         transition: all 0.3s ease-in-out;
     }
-    #scrollUp {
+    /* #scrollUp {
         display: flex;
         padding: 10px 0;
         font-size: 16px;
@@ -297,7 +297,7 @@ a:not([role="button"]):hover:after {
         width: 24px;
         height: 24px;
         background: url(../imgs/template/arrow-up.svg) no-repeat center center;
-    }
+    } */
     .swiper-pagination-bullet {
         background: #616670;
         margin: 0 5px;
